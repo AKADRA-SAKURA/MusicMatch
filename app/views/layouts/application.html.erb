@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicMatch</title>
+    <title>Music Match</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Music Match</h1>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "HOME",:controller => "hello", :action => "index" %></li>
+        <li><%= link_to "新規投稿",tweets_new_path %></li>
+        <li><%= link_to "新着",:controller => "tweets", :action => "index" %></li>
+        <!--<li><%= link_to "タグ一覧",tweets_new_path %></li>-->
+        <li><%= link_to "詳細検索",:controller => "search", :action => "search" %></li>
+        <!--<li><%= link_to "ログイン",tweets_new_path %></li>-->
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+     <p>Copyright © AKADRA All Rights Reserved.</p>
+    </footer>
   </body>
 </html>

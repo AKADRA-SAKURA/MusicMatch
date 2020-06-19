@@ -1,8 +1,6 @@
-<head>Music Match</head>
+<%= stylesheet_link_tag 'new', :media => "all" %>
 
-HOME ランキング　詳細検索　検索ボックス　検索　ログイン<br>
-
-新規投稿ページだよ<br>
+<p class="title">新規投稿ページだよ</p>
 
 <%= form_for @tweet do |f| %>
   <div class="field">
@@ -18,10 +16,8 @@ HOME ランキング　詳細検索　検索ボックス　検索　ログイン
     <%= f.text_field :published, :size => 140 %><br>
     <%= f.label :record %>
     <%= f.text_field :record, :size => 140 %><br>
-    
-  
   </div>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "作成する" %><br>
 <% end %>
 
 

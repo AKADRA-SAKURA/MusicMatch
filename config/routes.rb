@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'hello/link' => 'hello#link'
   get 'tweets' => 'tweets#index'
   get 'tweets/new' => 'tweets#new'
+  get 'search/search' => 'search#search'
 
   post 'tweets' => 'tweets#create'
   
