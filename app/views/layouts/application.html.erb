@@ -13,12 +13,15 @@
       <h1>Music Match</h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "HOME",:controller => "hello", :action => "index" %></li>
+        <li><%= link_to "HOME",hello_index_path %></li>
         <li><%= link_to "新規投稿",tweets_new_path %></li>
-        <li><%= link_to "新着",:controller => "tweets", :action => "index" %></li>
+        <li><%= link_to "新着",:controller => "/tweets", :action => "index" %></li>
         <!--<li><%= link_to "タグ一覧",tweets_new_path %></li>-->
-        <li><%= link_to "詳細検索",:controller => "search", :action => "search" %></li>
+        <li><%= link_to "詳細検索",:controller => "/search", :action => "search" %></li>
         <!--<li><%= link_to "ログイン",tweets_new_path %></li>-->
+        <%= link_to "ログイン", tweets_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to "新規登録", new_user_registration_path %>
       </ul>
       </div>
     </header>
