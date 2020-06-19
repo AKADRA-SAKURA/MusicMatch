@@ -7,6 +7,12 @@
 <div class="tweet">
   タイトル　<%= @tweet.title %><br>
   アーティスト　<%= @tweet.artist %><br>
+  <h3>いいね件数: <%= @tweet.likes.count %></h3>
+  <% if current_user.already_liked?(@tweet) %>
+    <%= button_to 'いいねを取り消す', tweet_like_path(@tweet), method: :delete %>
+  <% else %>
+    <%= button_to 'いいね', tweet_likes_path(@tweet) %>
+  <% end %>
   作詞者　<%= @tweet.writer %><br>
   作曲者　<%= @tweet.composer %><br>
   配信先　<%= @tweet.published %><br>
@@ -14,5 +20,10 @@
   作成者  <%= @tweet.user.email %><br>
   記事作成日時　<%= @tweet.created_at %><br>
 </div>
+
+いいねしたユーザー
+<% @tweet.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
 
 <%= link_to "Tweet一覧に戻る", tweets_path %>
