@@ -1,6 +1,9 @@
 
 　新規投稿一覧ページだよ<br>
 
+<br>
+<%= page_entries_info @tweets %>
+
 <div class="tweets-container">
   <% @tweets.each do |t| %>
     <div class="tweet">
@@ -18,4 +21,4 @@
   <% end %>
 </div>
 
-<%= link_to 'HOMEに戻る', :controller => "hello", :action => "index" %>
+<%= paginate @tweets %>

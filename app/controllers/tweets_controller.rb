@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
     def index
-      @tweets= Tweet.all
+      @tweets= Tweet.all.all.page(params[:page]).per(20)
     end
 
     def new
