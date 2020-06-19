@@ -1,0 +1,22 @@
+<head>Music Match</head><br>
+
+HOME ランキング　詳細検索　検索ボックス　検索　ログイン<br>
+
+<%= link_to "新規楽曲投稿ページへ", tweets_new_path %><br>
+
+　楽曲詳細ページだよ<br>
+
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+<%= button_to "削除する", tweet_path(@tweet.id), method: :delete %>
+
+<div class="tweet">
+  <%= @tweet.title %><br>
+  <%= @tweet.artist %><br>
+  <%= @tweet.writer %><br>
+  <%= @tweet.composer %><br>
+  <%= @tweet.published %><br>
+  <%= @tweet.record %><br>
+  <%= @tweet.created_at %><br>
+</div>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>

@@ -1,0 +1,24 @@
+<head>Music Match</head><br>
+
+HOME ランキング　詳細検索　検索ボックス　検索　ログイン<br>
+
+<%= link_to "新規楽曲投稿ページへ", tweets_new_path %><br>
+
+　楽曲情報編集ページだよ<br>
+
+<%= form_for @tweet do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :size => 140 %><br>
+  <%= f.label :artist %>
+  <%= f.text_field :artist, :size => 140 %><br>
+  <%= f.label :writer %>
+  <%= f.text_field :writer, :size => 140 %><br>
+  <%= f.label :composer %>
+  <%= f.text_field :composer, :size => 140 %><br>
+  <%= f.label :published %>
+  <%= f.text_field :published, :size => 140 %><br>
+  <%= f.label :record %>
+  <%= f.text_field :record, :size => 140 %><br>
+
+  <%= f.submit "編集する" %>
+<% end %>

@@ -1,8 +1,24 @@
-<head>Music Match</head>
+<head>Music Match</head><br>
 
-HOME ランキング　詳細検索　検索ボックス　検索　ログイン
+HOME ランキング　詳細検索　検索ボックス　検索　ログイン<br>
 
-<%= link_to "新規投稿ページへ", tweets_new_path %>
+<%= link_to "新規楽曲投稿ページへ", tweets_new_path %><br>
+
+　新規投稿一覧ページだよ<br>
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <%= t.title %>
+      <%= t.artist %>
+      <%= t.created_at %>
+      <%= link_to "詳細へ", tweet_path(t.id) %>
+      <%= link_to "編集する", edit_tweet_path(t.id) %>
+      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>
+
 
 曲名 / アーティスト名　お気に入り数
 
@@ -22,4 +38,4 @@ CD収録　有　リンク
 特徴タグ
 ・
 
-<%= link_to 'ここを押してね！', :controller => "hello", :action => "index" %>
+<%= link_to 'HOMEに戻る', :controller => "hello", :action => "index" %>
