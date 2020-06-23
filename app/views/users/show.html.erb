@@ -1,6 +1,10 @@
 マイページだよ
 
-<h1>メールアドレス</h1>
+<%= link_to "プロフィール編集", edit_user_registration_path %>
+
+<h4>メールアドレス</h4>
+
+<h1><%= current_user.user_name %></h1>
 
 <h2>投稿した曲</h2>
 
@@ -26,3 +30,4 @@
 </div>
 
 <%= paginate @tweet %>
+

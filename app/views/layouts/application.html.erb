@@ -10,10 +10,9 @@
 
   <body>
     <header>
-      <h1>Music Match</h1>
+      <h1><%= link_to "Music Match",hello_index_path %></h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "HOME",hello_index_path %></li>
         <li><%= link_to "新規投稿",tweets_new_path %></li>
         <li><%= link_to "新着",:controller => "/tweets", :action => "index" %></li>
         <!--<li><%= link_to "タグ一覧",tweets_new_path %></li>-->
@@ -21,6 +20,7 @@
         <li>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
+            <%= current_user.user_name %>さん
             <a href="/users/<%= current_user.id %>">マイページ</a>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
           </div>

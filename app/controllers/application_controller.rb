@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     protected
   
     def configure_permitted_parameters
-      added_attrs = [ :email, :user_name, :password, :password_confirmation ]
+      added_attrs = [ :email, :icon_url, :user_name, :password, :password_confirmation ]
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
       devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
         root_path
       end
     end
+
     
     # ログアウト後のリダイレクト先
     def after_sign_out_path_for(resource_or_scope)
