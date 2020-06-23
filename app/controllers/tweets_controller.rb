@@ -1,11 +1,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
+
     def index
       @tweets= Tweet.all.all.page(params[:page]).per(20)
     end
 
     def new
       @tweet = Tweet.new
+      @tags = Tag.all
+      @tag = @tweet.tags.build
     end
 
     def create
@@ -45,7 +48,7 @@ class TweetsController < ApplicationController
 
     private
     def tweet_params
-      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record)
+      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, tag_ids: [])
     end
 
 end

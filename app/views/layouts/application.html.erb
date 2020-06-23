@@ -21,6 +21,7 @@
         <li>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
+            <a href="/users/<%= current_user.id %>">マイページ</a>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
           </div>
         <% else %>

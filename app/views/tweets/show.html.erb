@@ -19,6 +19,10 @@
   CD収録　<%= @tweet.record %><br>
   作成者  <%= @tweet.user.email %><br>
   記事作成日時　<%= @tweet.created_at %><br>
+  <% @tweet.tags.each do |tag| %>
+    <span class= 'badge badge-primary'><%= tag.name %></span>
+  <% end %>
+
 </div>
 
 いいねしたユーザー

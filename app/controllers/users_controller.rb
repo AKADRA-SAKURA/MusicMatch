@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def show
-        @tweet = Tweet.where(user_id: current_user.id)
+        @tweet = current_user.tweets.page(params[:page]).per(5)
+        @user = User.where(user_id: current_user.id)
     end
 end
