@@ -19,17 +19,6 @@
   </div>
 
 
-  <div class='tag'>
-      <%= f.collection_check_boxes(:tag_ids, @tags, :id, :name) do |tag| %>
-          <div class='form-check'>
-              <%= tag.label class: 'form-check-label' do %>
-                  <%= tag.check_box class: 'form-check-input' %>
-                  <%= tag.text :tag %>
-              <% end %>
-          </div>
-      <% end %>
-  </div>
-
   <%= f.submit "作成する" %><br>
 <% end %>
 

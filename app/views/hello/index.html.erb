@@ -2,7 +2,25 @@
 
 最新トピックス<br>
 
-嵐/カイト<br>
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+        <div class="main-box">
+            <div class="left-container"><%= t.title %></div>
+            <div class=right-container>
+              <%= t.artist %><br>
+              (♡<%= t.liked_users.count %>)
+              <%= link_to "詳細へ", tweet_path(t.id) %>
+              <%= link_to "編集する", edit_tweet_path(t.id) %>
+              <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+            </div>
+        </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
+  <% end %>
+</div>
+
+<br>
 
 お気に入り数ランキング<br>
 
