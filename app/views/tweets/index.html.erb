@@ -8,13 +8,17 @@
   <% @tweets.each do |t| %>
     <div class="tweet">
         <div class="main-box">
-            <div class="left-container"><%= t.title %></div>
+            <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
             <div class=right-container>
               <%= t.artist %><br>
               (♡<%= t.liked_users.count %>)
-              <%= link_to "詳細へ", tweet_path(t.id) %>
+              <% if user_signed_in? && current_user.id == t.user_id %>
+                  <%= link_to '編集する', "/tweets/#{t.id}/edit" %>
+              <% end %>
+              <!--
               <%= link_to "編集する", edit_tweet_path(t.id) %>
               <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+              -->
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>

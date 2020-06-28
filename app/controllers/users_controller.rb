@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def show
-        @tweet = current_user.tweets.page(params[:page]).per(5)
+        @tweet = current_user.tweets.page(params[:page]).per(5).order(created_at: :desc)
     end
 
     def edit

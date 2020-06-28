@@ -52,3 +52,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'safe_attributes'
 gem 'kaminari'
 gem 'devise'
+gem 'audiojs-rails'
