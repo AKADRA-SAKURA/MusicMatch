@@ -39,9 +39,9 @@
   <p>コメント一覧</p>
   <% @comments.each do |c| %>
     <div>
-      <%= c.user.email unless c.user.blank? %>
+      (投稿者)　<%= c.user.user_name unless c.user.blank? %>
       <br>
-      <%= c.comment %>
+      (コメント)　<%= c.comment %>
     </div>
       <br>
   <% end %>

@@ -5,3 +5,22 @@
    <%= text_field_tag :search %>
    <%= submit_tag '検索'  %>
 <% end %>
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+        <div class="main-box">
+            <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
+            <div class=right-container>
+              <%= t.artist %><br>
+              (♡<%= t.liked_users.count %>)
+              <% if user_signed_in? && current_user.id == t.user_id %>
+                  <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
+              <% end %>
+              投稿者　<%= t.user.user_name %>
+            </div>
+        </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
+  <% end %>
+</div>
