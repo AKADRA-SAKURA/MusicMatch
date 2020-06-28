@@ -13,12 +13,9 @@
               <%= t.artist %><br>
               (♡<%= t.liked_users.count %>)
               <% if user_signed_in? && current_user.id == t.user_id %>
-                  <%= link_to '編集する', "/tweets/#{t.id}/edit" %>
+                  <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
-              <!--
-              <%= link_to "編集する", edit_tweet_path(t.id) %>
-              <%= link_to "削除する", tweet_path(t.id), method: :delete %>
-              -->
+              投稿者　<%= t.user.user_name %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>
