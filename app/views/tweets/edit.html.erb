@@ -2,18 +2,17 @@
 　楽曲情報編集ページだよ<br>
 
 <%= form_for @tweet do |f| %>
-  <%= f.label :title %>
+  <%= f.label :title, '曲名' %>
   <%= f.text_field :title, :size => 140 %><br>
-  <%= f.label :artist %>
+  <%= f.label :artist, 'アーティスト' %>
   <%= f.text_field :artist, :size => 140 %><br>
-  <%= f.label :writer %>
+  <%= f.label :writer, '作詞者' %>
   <%= f.text_field :writer, :size => 140 %><br>
-  <%= f.label :composer %>
+  <%= f.label :composer, '作曲者' %>
   <%= f.text_field :composer, :size => 140 %><br>
-  <%= f.label :published %>
+  <%= f.label :published, '配信先' %>
   <%= f.text_field :published, :size => 140 %><br>
-  <%= f.label :record %>
+  <%= f.label :record, '収録' %>
   <%= f.text_field :record, :size => 140 %><br>
-
   <%= f.submit "編集する" %>
 <% end %>
