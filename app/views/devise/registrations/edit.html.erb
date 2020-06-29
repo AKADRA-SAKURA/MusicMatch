@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :icon_url, 'アイコン画像' %><br />
+    <%= f.file_field :icon_url %>
+  </div>
+
+  <div class="field">
     <%= f.label :current_password %> <i>(変更を適用するには現在のパスワードを入力してください)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
