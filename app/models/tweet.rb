@@ -5,4 +5,9 @@ class Tweet < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :tag_relations, dependent: :destroy
     has_many :tags, through: :tag_relations, dependent: :destroy
+    mount_uploader :image, ImageUploader
+
+    def like_user(user_id)
+        likes.find_by(user_id: user_id)
+    end
 end

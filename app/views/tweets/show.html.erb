@@ -8,6 +8,7 @@
 <% end %>
 
 <div class="tweet">
+  <%= image_tag @tweet.image_url, :size =>'320x320' %><br>
   タイトル　<%= @tweet.title %><br>
   アーティスト　<%= @tweet.artist %><br>
   <h3>いいね件数: <%= @tweet.likes.count %></h3>
@@ -20,10 +21,11 @@
   作曲者　<%= @tweet.composer %><br>
   配信先　<%= @tweet.published %><br>
   CD収録　<%= @tweet.record %><br>
-  作成者  <%= @tweet.user.email %><br>
+  作成者  <%= @tweet.user.user_name %><br>
   記事作成日時　<%= @tweet.created_at %><br>
+  <h4>タグ</h4>
   <% @tweet.tags.each do |tag| %>
-    <span class= 'badge badge-primary'><%= tag.name %></span>
+    <span class= 'badge badge-primary'><%= tag.tag %></span>
   <% end %>
 
 </div>
@@ -32,7 +34,7 @@
 
 いいねしたユーザー
 <% @tweet.liked_users.each do |user| %>
-  <li><%= user.email %></li>
+  <li><%= user.user_name %></li>
 <% end %>
 
 <div class="comment-wrapper">

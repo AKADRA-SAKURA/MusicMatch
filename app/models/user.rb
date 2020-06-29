@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet
   has_many :comments, dependent: :destroy
 
-  def already_liked?(tweet)
-    self.likes.exists?(tweet_id: tweet.id)
+  def already_liked?(t)
+    self.likes.exists?(tweet_id: t.id)
   end
 
   devise :database_authenticatable, :registerable,

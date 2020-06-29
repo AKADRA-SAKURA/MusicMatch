@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
 
     def index
-      @tweets= Tweet.all.all.page(params[:page]).per(20).order(created_at: :desc)
+      @tweets= Tweet.all.all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)
     end
 
     def ranking
@@ -34,6 +34,8 @@ class TweetsController < ApplicationController
 
     def edit
       @tweet = Tweet.find(params[:id])
+      @tags = Tag.all
+      @tag = @tweet.tags.build
     end
 
     def update
@@ -52,7 +54,7 @@ class TweetsController < ApplicationController
 
     private
     def tweet_params
-      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, tag_ids: [])
+      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, :image, tag_ids: [])
     end
 
 end
