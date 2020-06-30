@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet
   has_many :comments, dependent: :destroy
   mount_uploader :icon_url, ImageUploader
+  has_many :tag
 
   def already_liked?(t)
     self.likes.exists?(tweet_id: t.id)

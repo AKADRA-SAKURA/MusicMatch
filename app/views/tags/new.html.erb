@@ -1,0 +1,7 @@
+<%= form_for @tag do |f| %>
+  <div class="field">
+    <%= f.label :tag, 'タグ' %>
+    <%= f.text_field :tag, :size => 140 %>
+  </div>
+  <%= f.submit "タグを作成" %>
+<% end %>

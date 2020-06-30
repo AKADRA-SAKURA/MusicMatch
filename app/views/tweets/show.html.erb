@@ -3,7 +3,6 @@
 
 <% if user_signed_in? && current_user.id == @tweet.user_id %>
   <%= link_to '編集する', "/tweets/#{@tweet.id}/edit" %>
-  <!--<%= link_to '削除する', "/tweets/#{@tweet.id}", method: :delete %>-->
   <%= link_to '削除する', "/tweets/#{@tweet.id}",method: :delete, data: { confirm: '削除しますか？' } %>
 <% end %>
 

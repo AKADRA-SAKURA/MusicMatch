@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   patch 'users/:id' => 'users#update'
   get 'users/:id/edit' => 'users#edit', as:'user_tweet'
+  get 'tags/new' => 'tags#new'
+  post 'tags' => 'tags#create'
+  delete 'tags/:id' => 'tags#destroy'
+
 
   resources :tweets do
     resources :likes, only: [:create, :destroy]
