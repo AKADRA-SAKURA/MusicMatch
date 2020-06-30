@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'tweets/new' => 'tweets#new'
   get 'search/search' => 'search#search'
   get 'tweets/ranking' => 'tweets#ranking'
+  get 'search/tagsearch' => 'search#tagsearch'
+  get 'tweets/artist' => 'tweets#artist'
+  get 'tags/index' => 'tags#index'
 
   post 'tweets' => 'tweets#create'
   

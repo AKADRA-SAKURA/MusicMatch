@@ -9,11 +9,15 @@ class SearchController < ApplicationController
         end
     end
 
-    #def searchtag
-    #    @tag_list = Tag.all  #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-    #    @tag = Tag.find(params[:tag_id])  #クリックしたタグを取得
-    #    @tweets = @tag.tweets.all           #クリックしたタグに紐付けられた投稿を全て表示
-    #end
+    def tagsearch
+        if params[:tag_id]
+          @selected_tag = Tag.find(params[:tag_id])
+          @tweets= Tweet.from_tag(params[:tag_id]).page(params[:page])
+        else
+          @tweets= Tweet.all.page(params[:page])
+        end
+    end
+
 
     def result
     end

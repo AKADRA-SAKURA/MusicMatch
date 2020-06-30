@@ -1,0 +1,9 @@
+<h2>タグ一覧</h2>
+
+<div class="tag-container">
+  <% @tags.each do |t| %>
+    <div class="tag">
+      <%= t.tag %><br>
+    </div>
+  <% end %>
+</div>

@@ -5,6 +5,11 @@ class TweetsController < ApplicationController
       @tweets= Tweet.all.all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)
     end
 
+    #def artist
+      #@tweets= Tweet.where(artist: ).all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)
+    #end
+
+
     def ranking
       @all_ranks = Tweet.find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(3).pluck(:tweet_id))
     end

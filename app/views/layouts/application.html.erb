@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Music Match</title>
+    <title>Music Match(仮)</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,12 +11,12 @@
 
   <body>
     <header>
-      <h1><%= link_to "Music Match",hello_index_path %></h1>
+      <h1><%= link_to "Music Match(仮)",hello_index_path %></h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "新規投稿",tweets_new_path %></li>
         <li><%= link_to "ランキング",:controller => "/tweets", :action => "ranking" %></li>
-        <li><%= link_to "一覧",:controller => "/tweets", :action => "index" %></li>
+        <li><%= link_to "楽曲一覧",:controller => "/tweets", :action => "index" %></li>
+        <li><%= link_to "タグ一覧",:controller => "/tags", :action => "index" %></li>
         <!--<li><%= link_to "タグ一覧",tweets_new_path %></li>-->
         <li><%= link_to "詳細検索",:controller => "/search", :action => "search" %></li>
         <li>
@@ -24,6 +24,7 @@
           <div class="user_nav grid-6">
             <%= current_user.user_name %>さん
             <a href="/users/<%= current_user.id %>">マイページ</a>
+            <li><%= link_to "新規投稿",tweets_new_path %></li>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
           </div>
         <% else %>
