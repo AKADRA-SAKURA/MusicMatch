@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
 
+  #resources :tags do
+  #  get 'tweets', to: 'search#searchtag'
+  #end
+
 end

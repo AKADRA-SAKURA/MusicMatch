@@ -13,7 +13,13 @@
             <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
             <div class=right-container>
               <%= t.artist %><br>
-              (♡<%= t.liked_users.count %>)
+              <% if current_user.already_liked?(t) %>
+                <span class="fa fa-heart like-btn-unlike" ></span><%= t.liked_users.count %>
+                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
+              <% else %>
+                <span class="fa fa-heart like-btn" ></span><%= t.liked_users.count %>
+                <%= link_to 'いいね', tweet_likes_path(t.id, t.id) %>
+              <% end %>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
