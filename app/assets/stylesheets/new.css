@@ -21,3 +21,9 @@
     margin-top: 50px;
     margin-bottom: 30px;
   }
+
+.form-group {
+  columns: 6;
+  column-rule: 1px solid #cdcdcd;
+  column-gap: 2em;
+}

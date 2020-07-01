@@ -25,7 +25,10 @@
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
-              投稿者　<%= t.user.user_name %>
+              投稿者　<%= t.user.user_name %><br>
+              <% t.tags.each do |tag| %>
+                <span class= 'badge badge-primary'><%= tag.tag %></span>
+              <% end %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>

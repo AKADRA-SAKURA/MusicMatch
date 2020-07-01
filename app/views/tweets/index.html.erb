@@ -1,5 +1,5 @@
 
-　新規投稿一覧ページだよ<br>
+新規投稿一覧ページだよ<br>
 
 <br>
 <%= page_entries_info @tweets %>
@@ -16,12 +16,12 @@
                 <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
               <% else %>
                 <span class="fa fa-heart like-btn"></span><%= t.liked_users.count %>
-                <%= link_to 'いいね', tweet_likes_path(t.id, t.id) %>
+                <%= button_to 'いいね', tweet_likes_path(t.id, t.id) %>
               <% end %>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
-              投稿者　<%= t.user.user_name %>
+              投稿者　<%= t.user.user_name %><br>
                 <h4>タグ</h4>
               <% t.tags.each do |tag| %>
                 <span class= 'badge badge-primary'><%= tag.tag %></span>

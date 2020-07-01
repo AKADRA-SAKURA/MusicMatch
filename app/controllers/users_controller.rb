@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
     def show
         @tweet = current_user.tweets.page(params[:page]).per(5).order(created_at: :desc)
+        @user = User.find_by(id: params[:id])
+        @likes = Like.where(user_id: @user.id)
     end
 
     def edit

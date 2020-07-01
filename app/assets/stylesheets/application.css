@@ -44,6 +44,29 @@
   .header-list {
     display: flex;
     align-items: center;
+    background: red;
+    /*width: 100px;*/
+    /*height: 80px;*/
+    /*line-height: 100px;*/
+    color: #fff;
+    margin: 30px auto;
+    /*border-radius: 50%;*/
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  .header-list:active {
+    -webkit-box-shadow:
+    0 0 0 15px #fff,
+    0 0 0 18px rgb(255, 102, 0);
+    -moz-box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px rgb(255, 102, 0);
+    box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px rgb(255, 102, 0);
   }
   header ul {
     display: flex;
@@ -65,3 +88,4 @@
     background-image:         linear-gradient(45deg,transparent 40%,rgba(255,255,255,.3) 40%,rgba(255,255,255,.3) 60%,transparent 60%);
     background-repeat: no-repeat;
   }
+

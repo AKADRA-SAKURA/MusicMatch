@@ -5,10 +5,12 @@
     <div class="tag">
       ・<%= t.tag %>
       <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "削除する", "/tags/#{t.id}", method: :delete, data: { confirm: '削除しますか？' } %>
+        <%= link_to "削除", "/tags/#{t.id}", method: :delete, data: { confirm: '削除しますか？' } %>
       <% end %>
     </div>
   <% end %>
 </div>
 
-<%= link_to "新規投稿ページへ", tags_new_path %>
+<br>
+
+<%= link_to "タグを新しく投稿する", tags_new_path %>

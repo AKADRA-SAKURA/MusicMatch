@@ -23,6 +23,10 @@
               (♡<%= t.liked_users.count %>)
               <%= link_to "編集する", edit_tweet_path(t.id) %>
               <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' } %>
+              <h4>タグ</h4>
+              <% t.tags.each do |tag| %>
+                <span class= 'badge badge-primary'><%= tag.tag %></span>
+              <% end %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>
@@ -31,4 +35,28 @@
 </div>
 
 <%= paginate @tweet %>
+
+
+<h2>いいねした曲</h2>
+
+<div class="tweets-container">
+  <div class="contents_like">
+    <% @likes.each do |like| %>
+      <div class="tweet">
+          <div class="main-box">
+              <div class="left-container"><% tweet = Tweet.find_by(id: like.tweet_id) %>      <%= link_to tweet.title, tweet_path(tweet.id) %><br></div>
+              <div class=right-container>
+                <%= tweet.artist %><br>
+                投稿者　<%= tweet.user.user_name %><br>
+                  <h4>タグ</h4>
+                <% tweet.tags.each do |tag| %>
+                  <span class= 'badge badge-primary'><%= tag.tag %></span>
+                <% end %>
+              </div>
+          </div>
+          <p class="time"><%= tweet.created_at %></p>
+      </div>    
+    <% end %>
+  </div>
+</div>
 
