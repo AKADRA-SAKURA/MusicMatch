@@ -22,8 +22,9 @@
                   <%= link_to '削除する', "/tweets/#{t.id}", method: :delete %>
               <% end %>
               投稿者　<%= t.user.user_name %><br>
+              タグ
               <% t.tags.each do |tag| %>
-                <span class= 'badge badge-primary'><%= tag.tag %></span>
+                #<span class= 'badge badge-primary'><%= tag.tag %></span>
               <% end %>
             </div>
         </div>
@@ -54,8 +55,9 @@
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
               投稿者　<%= t.user.user_name %><br>
+              タグ
               <% t.tags.each do |tag| %>
-                <span class= 'badge badge-primary'><%= tag.tag %></span>
+                #<span class= 'badge badge-primary'><%= tag.tag %></span>
               <% end %>
             </div>
         </div>
