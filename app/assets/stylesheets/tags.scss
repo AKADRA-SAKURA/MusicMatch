@@ -1,3 +1,8 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.tag-container {
+    columns: 6;
+    column-rule: 1px solid #cdcdcd;
+    column-gap: 2em;
+  }

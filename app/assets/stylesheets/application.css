@@ -44,7 +44,7 @@
   .header-list {
     display: flex;
     align-items: center;
-    background: red;
+    background: transparent;
     /*width: 100px;*/
     /*height: 80px;*/
     /*line-height: 100px;*/

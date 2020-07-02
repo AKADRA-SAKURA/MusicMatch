@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_151921) do
+ActiveRecord::Schema.define(version: 2020_07_02_075227) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "comment"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_06_30_151921) do
     t.text "online"
     t.integer "user_id"
     t.string "image"
+    t.text "used"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
