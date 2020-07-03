@@ -1,0 +1,18 @@
+<h2> 投稿一覧</h2>
+
+<!--タグリスト-->
+<%= @tag_list.each do |list| %> 
+  <span>
+    <%= link_to list.tag_name, tag_posts_path(tweet_tag_id: list.id) %>
+    <% "(#{list.tweets.count})" %><br>
+  </span>
+<% end %>
+
+<!--タグによって絞り込んだ投稿一覧-->
+<%= "タグが ─ " %><% "#{@tag.tag_name}" %><%= " ─ の投稿一覧" %>
+<br>
+
+<% @tweets.each do |t| %>
+  <%= link_to t.title, t %>
+<% end %>
+<br>

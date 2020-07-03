@@ -5,7 +5,13 @@
   <% @all_ranks.each do |t| %>
     <div class="tweet">
         <div class="main-box">
-            <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
+            <div class="left-container">
+              <%= link_to t.title, tweet_path(t.id) %>
+              <h4>タグ</h4>
+              <% t.tags.each do |tag| %>
+                #<span class= 'badge badge-primary'><%= tag.tag %></span>
+              <% end %>
+            </div>
             <div class=right-container>
               <%= t.artist %><br>
               <% if current_user.already_liked?(t) %>
@@ -19,9 +25,6 @@
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
               投稿者　<%= t.user.user_name %><br>
-              <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= tag.tag %></span>
-              <% end %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>

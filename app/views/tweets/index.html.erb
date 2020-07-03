@@ -8,9 +8,15 @@
   <% @tweets.each do |t| %>
     <div class="tweet">
         <div class="main-box">
-            <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
+            <div class="left-container">
+              <%= link_to t.title, tweet_path(t.id) %><br>
+              <h4>タグ</h4>
+              <% t.tags.each do |tag| %>
+                #<span class= 'badge badge-primary'><%= tag.tag %></span>
+              <% end %>
+            </div>
             <div class=right-container>
-              <%= t.artist %><br>
+              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
                 <span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %>
                 <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
@@ -22,10 +28,6 @@
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
               投稿者　<%= t.user.user_name %><br>
-                <h4>タグ</h4>
-              <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= tag.tag %></span>
-              <% end %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>

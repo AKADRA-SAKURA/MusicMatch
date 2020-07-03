@@ -5,10 +5,16 @@ class TweetsController < ApplicationController
       @tweets= Tweet.all.all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)
     end
 
-    #def artist
-      #@tweets= Tweet.where(artist: ).all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)
-    #end
+    def search
+      @tag_list = Tag.all  #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
+      @tag = Tag.find(params[:tag_id])  #クリックしたタグを取得
+      @tweet = Tweet.find(params[:id])
+    end
 
+    def artist
+      art = Tweet.find(params[:format]).artist
+      @tweets = Tweet.where(artist: art)
+    end
 
     def ranking
       @all_ranks = Tweet.find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(3).pluck(:tweet_id))
@@ -17,7 +23,6 @@ class TweetsController < ApplicationController
     def new
       @tweet = Tweet.new
       @tags = Tag.all
-      @tag = @tweet.tags.build
     end
 
     def create
