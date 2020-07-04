@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'search/tagsearch' => 'search#tagsearch'
   get 'tweets/artist' => 'tweets#artist'
   get 'tags/index' => 'tags#index'
+  get 'tags/search' => 'tags#search'
 
   post 'tweets' => 'tweets#create'
   
@@ -38,9 +39,5 @@ Rails.application.routes.draw do
   resources :tags do
     get 'tweets', to: 'tweets#search'
   end
-
-  #resources :tags do
-  #  get 'tweets', to: 'search#searchtag'
-  #end
 
 end

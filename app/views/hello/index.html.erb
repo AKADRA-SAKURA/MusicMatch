@@ -1,7 +1,7 @@
-あなたにぴったりの音楽に出会うサイト<br>
+<h2 style="background-color:orange; color:white; height:100px;  text-align:center; line-height:1.5;">あなたにぴったりの音楽に出会うサイト</h2><br>
 
 
-最新トピックス<br>
+<h2>最新トピックス</h2><br>
 
 <div class="tweets-container">
   <% @tweets.each do |t| %>
@@ -15,14 +15,16 @@
               <% end %>
             </div>
             <div class=right-container>
-              <%= t.artist %><br>
+              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
-                <span class="fa fa-heart like-btn-unlike" ></span><%= t.liked_users.count %>
-                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
+                <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
+                  <i class="far fa-heart unlike-btn" ></i>
+                <% end %><%= t.liked_users.count %>
               <% else %>
-                <span class="fa fa-heart like-btn" ></span><%= t.liked_users.count %>
-                <%= button_to 'いいね', tweet_likes_path(t.id, t.id) %>
-              <% end %>
+                <%= button_to tweet_likes_path(t.id, t.id) do %>
+                  <i class="far fa-heart like-btn" ></i>
+                <% end %><%= t.liked_users.count %>
+              <% end %><br>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>
                   <%= link_to '削除する', "/tweets/#{t.id}", method: :delete %>
@@ -40,7 +42,7 @@
 
 <br>
 
-お気に入り数ランキング<br>
+<h2>お気に入り数ランキング</h2><br>
 
 <div class="tweets-container">
   <% @all_ranks.each do |t| %>
@@ -54,14 +56,16 @@
               <% end %>
             </div>
             <div class=right-container>
-              <%= t.artist %><br>
+              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
-                <span class="fa fa-heart like-btn-unlike" ></span><%= t.liked_users.count %>
-                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
+                <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
+                  <i class="far fa-heart unlike-btn" ></i>
+                <% end %><%= t.liked_users.count %>
               <% else %>
-                <span class="fa fa-heart like-btn" ></span><%= t.liked_users.count %>
-                <%= button_to 'いいね', tweet_likes_path(t.id, t.id) %>
-              <% end %>
+                <%= button_to tweet_likes_path(t.id, t.id) do %>
+                  <i class="far fa-heart like-btn" ></i>
+                <% end %><%= t.liked_users.count %>
+              <% end %><br>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
@@ -75,5 +79,3 @@
 
 <%= link_to 'View more...', :controller => "tweets", :action => "ranking" %>
 
-
-<%= link_to 'hello link', :controller => "hello", :action => "link" %>

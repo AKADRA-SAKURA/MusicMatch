@@ -17,6 +17,7 @@
  * {
     padding: 0;
     margin: 0;
+    background-color: rgb(255, 243, 139);
   }
   body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
@@ -73,7 +74,7 @@
   }
   header li {
     list-style: none;
-    margin-right: 40px;
+    margin-right: 20px;
   }
   footer {
     color: white;
@@ -88,4 +89,3 @@
     background-image:         linear-gradient(45deg,transparent 40%,rgba(255,255,255,.3) 40%,rgba(255,255,255,.3) 60%,transparent 60%);
     background-repeat: no-repeat;
   }
-

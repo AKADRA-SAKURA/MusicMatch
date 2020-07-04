@@ -7,6 +7,13 @@ class TagsController < ApplicationController
         @tag = Tag.new
     end
 
+    def search
+        #ta = Tag.find(params[:format]).tag
+        #@tweets = Tweet.where(tag: ta)
+        tag = Tag.find_by(id: "1")        
+        @tweets = Tweet.where(tag: tag)
+    end
+
     def create
         @tags = Tag.new(tag_params)
         @tags.user_id = current_user.id

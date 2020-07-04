@@ -3,7 +3,7 @@
 <div class="tag-container">
   <% @tags.each do |t| %>
     <div class="tag">
-      #<%= link_to t.tag, tag_tweets_path(t.id) %>
+      #<%= link_to t.tag, tags_search_path(t.id) %>
       <% if user_signed_in? && current_user.id == t.user_id %>
         <%= link_to "削除", "/tags/#{t.id}", method: :delete, data: { confirm: '削除しますか？' } %>
       <% end %>

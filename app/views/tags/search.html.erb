@@ -1,12 +1,11 @@
-<h2>いいね数ランキング</h2>
 
 
 <div class="tweets-container">
-  <% @all_ranks.each do |t| %>
+  <% @tweets.each do |t| %>
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %>
+              <%= link_to t.title, tweet_path(t.id) %><br>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
                 #<span class= 'badge badge-primary'><%= tag.tag %></span>
@@ -15,13 +14,11 @@
             <div class=right-container>
               <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
-                <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
-                  <i class="far fa-heart unlike-btn" ></i>
-                <% end %><%= t.liked_users.count %>
+                <span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %>
+                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
               <% else %>
-                <%= button_to tweet_likes_path(t.id, t.id) do %>
-                  <i class="far fa-heart like-btn" ></i>
-                <% end %><%= t.liked_users.count %>
+                <span class="fa fa-heart like-btn"></span><%= t.liked_users.count %>
+                <%= button_to 'いいね', tweet_likes_path(t.id, t.id) %>
               <% end %>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　

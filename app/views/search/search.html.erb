@@ -14,7 +14,7 @@
         <div class="main-box">
             <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
             <div class=right-container>
-              <%= t.artist %><br>
+              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
                 <span class="fa fa-heart like-btn-unlike" ></span><%= t.liked_users.count %>
                 <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
