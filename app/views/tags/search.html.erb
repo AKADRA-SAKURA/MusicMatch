@@ -1,32 +1,31 @@
 
-
 <div class="tweets-container">
-  <% @tweets.each do |t| %>
+  <% @tag.tag_relations.each do |t| %>
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %><br>
+              <%= link_to t.tweet.title, tweet_path(t.id) %><br>
               <h4>タグ</h4>
-              <% t.tags.each do |tag| %>
+              <% t.tweet.tags.each do |tag| %>
                 #<span class= 'badge badge-primary'><%= tag.tag %></span>
               <% end %>
             </div>
             <div class=right-container>
-              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
+              <%= link_to t.tweet.artist, tweets_artist_path(t.tweet.id) %><br>
               <% if current_user.already_liked?(t) %>
-                <span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %>
-                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
+                <span class="fa fa-heart like-btn-unlike"></span><%= t.tweet.liked_users.count %>
+                <%= link_to 'いいねを取り消す', tweet_like_path(t.tweet.id, t.tweet.id), method: :delete %>
               <% else %>
-                <span class="fa fa-heart like-btn"></span><%= t.liked_users.count %>
-                <%= button_to 'いいね', tweet_likes_path(t.id, t.id) %>
+                <span class="fa fa-heart like-btn"></span><%= t.tweet.liked_users.count %>
+                <%= button_to 'いいね', tweet_likes_path(t.tweet.id, t.tweet.id) %>
               <% end %>
-              <% if user_signed_in? && current_user.id == t.user_id %>
+              <% if user_signed_in? && current_user.id == t.tweet.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
-              投稿者　<%= t.user.user_name %><br>
+              投稿者　<%= t.tweet.user.user_name %><br>
             </div>
         </div>
-        <p class="time"><%= t.created_at %></p>
+        <p class="time"><%= t.tweet.created_at %></p>
     </div>
   <% end %>
 </div>

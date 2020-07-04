@@ -1,5 +1,5 @@
 .tweets-container {
-    width: 50%;
+    width: 100%;
     margin: 10px auto;
   }
   h3 {
@@ -35,4 +35,3 @@
     color: #e54747;
     margin-left: 20px;
     }
-  

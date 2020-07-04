@@ -12,6 +12,7 @@ class TagsController < ApplicationController
         #@tweets = Tweet.where(tag: ta)
         tag = Tag.find_by(id: "1")        
         @tweets = Tweet.where(tag: tag)
+        @tag = Tag.find(params[:format])
     end
 
     def create
