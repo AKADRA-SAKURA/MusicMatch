@@ -11,7 +11,7 @@ class SearchController < ApplicationController
 
     def tagsearch
       @q = Tweet.ransack(params[:q])
-      @tweets = @q.result(distinct: true)
+      @tweets = @q.result(distinct: true).order(created_at: :desc)
     end
   
   
