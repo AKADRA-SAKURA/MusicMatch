@@ -8,9 +8,7 @@ class TagsController < ApplicationController
     end
 
     def search
-        #ta = Tag.find(params[:format]).tag
-        #@tweets = Tweet.where(tag: ta)
-        tag = Tag.find_by(id: "1")        
+        tag = Tag.find_by(id: :format)    
         @tweets = Tweet.where(tag: tag)
         @tag = Tag.find(params[:format])
     end
