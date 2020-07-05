@@ -10,16 +10,31 @@ class SearchController < ApplicationController
     end
 
     def tagsearch
-        if params[:tag_id]
-          @selected_tag = Tag.find(params[:tag_id])
-          @tweets= Tweet.from_tag(params[:tag_id]).page(params[:page])
-        else
-          @tweets= Tweet.all.page(params[:page])
-        end
+      @q = Tweet.ransack(params[:q])
+      @tweets = @q.result(distinct: true)
     end
+  
+  
+    private
+      def post_params
+        params.require(:post).permit(:title, :details, label_ids: [] )
+      end
 
+    #def tagsearch
+     # if params[:search] != nil && params[:search] != ''
+      #  #部分検索かつ複数検索
+       # tagname = Tag.where("tag LIKE ? ", "%" + params[:search] + "%")
+   #   else
+    #    tagname = Tag.all.order(created_at: :desc)
+     # end 
+      #tag = Tag.find_by(id: :format)    
+      #@tweets = Tweet.where(tag: tag)
+      #@tag = Tag.find(params[:format])
+      #@tagall = Tag.all
+   # end
 
-    def result
-    end
+    #def selected_tags_params
+     # params.require(:tag_ids)
+    #end
     
 end

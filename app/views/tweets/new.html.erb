@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'new', :media => "all" %>
 
-<p class="title">新規投稿ページだよ</p>
+<p class="new_tweet_sentence">新規投稿ページだよ</p>
 
 <%= form_for @tweet do |f| %>
   <div class="field">
@@ -30,9 +30,7 @@
             <% end %>
         </div>
     <% end %>
-    <!--<%= tag.text_field :tag %>-->
   </div>
-  
 
   <div class="field">
     <%= f.label :image, 'ジャケット写真 ※許可がある場合のみ' %><br>

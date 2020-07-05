@@ -18,9 +18,15 @@
     padding: 0;
     margin: 0;
   }
+  .title{
+    color: white;
+    margin-left: 20px;
+    text-shadow: 4px 4px 5px black;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 32px;
+  }
   body {
-    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
-      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    font-family: sans-serif;
     display: flex;
     flex-flow: column;
     min-height: 100vh;
@@ -43,6 +49,7 @@
   header h1 {
     color: white;
     margin-left: 20px;
+    text-shadow: 4px 4px 5px black;
   }
   .header-list {
     display: flex;
@@ -77,6 +84,7 @@
   header li {
     list-style: none;
     margin-right: 20px;
+    text-shadow: 4px 4px 5px black;
   }
   main{
     flex: 1;
@@ -97,5 +105,6 @@
     background-repeat: no-repeat;
   }
 html{
-  background-color: rgb(255, 243, 139);
+  background: url(https://res.cloudinary.com/dtyelpqc0/image/upload/v1593957092/HomeBackground.png);
+  background-size: 100% 200%;
 }

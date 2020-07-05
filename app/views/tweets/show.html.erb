@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="tweet">
-  <%= image_tag @tweet.image_url, :size =>'320x320' %><br>
+  <%= image_tag @tweet.image_url, :size =>'240x240' %><br>
   <div class="detail">
     タイトル　<%= @tweet.title %><br>
     アーティスト　<%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %><br>
@@ -31,7 +31,7 @@
   <div class="Tag">
     <h4>タグ</h4>
     <% @tweet.tags.each do |tag| %>
-      #<span class= 'badge badge-primary'><%= tag.tag %></span>
+      #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
     <% end %>
   </div>
 

@@ -1,16 +1,25 @@
+詳細検索ページだよ
 
-<h2>新規投稿一覧ページだよ</h2><br>
+<h3>タグから検索</h3>
 
-<br>
-<%= page_entries_info @tweets %>
+
+<%= search_form_for @q do |f| %>
+  <div class="Tag_check_list">
+    <% Tag.all.each do |t| %>
+      <%= f.check_box :labels_id_eq_any, { multiple: true, checked: t[:checked], disabled: t[:disabled], include_hidden: false }, t[:id] %>
+      <label><%= t.tag %></label><br>
+    <% end %>
+    <%= f.submit "検索" %>
+  </div>
+<% end %>
 
 <div class="tweets-container">
   <% @tweets.each do |t| %>
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <div class="index_title">   
-                <%= link_to t.title, tweet_path(t.id) %><br>
+              <div class="index_title">  
+                <%= link_to t.title, tweet_path(t.id) %>
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
@@ -20,13 +29,11 @@
             <div class=right-container>
               <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
-                <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
-                  <i class="far fa-heart unlike-btn" ></i>
-                <% end %><%= t.liked_users.count %>
+                <span class="fa fa-heart like-btn-unlike" ></span><%= t.liked_users.count %>
+                <%= link_to 'いいねを取り消す', tweet_like_path(t.id, t.id), method: :delete %>
               <% else %>
-                <%= button_to tweet_likes_path(t.id, t.id) do %>
-                  <i class="far fa-heart like-btn" ></i>
-                <% end %><%= t.liked_users.count %>
+                <span class="fa fa-heart like-btn" ></span><%= t.liked_users.count %>
+                <%= link_to 'いいね', tweet_likes_path(t.id, t.id) %>
               <% end %>
               <% if user_signed_in? && current_user.id == t.user_id %>
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
@@ -38,5 +45,3 @@
     </div>
   <% end %>
 </div>
-
-<%= paginate @tweets %>

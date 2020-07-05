@@ -1,4 +1,4 @@
-<h2 style="background-color:orange; color:white; height:100px;  text-align:center; line-height:1.5;">あなたにぴったりの音楽に出会うサイト</h2><br>
+<div class="midashi">あなたにぴったりの音楽に出会うサイト</div><br>
 
 
 <h2>最新トピックス</h2><br>
@@ -8,10 +8,12 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %><br>
+              <div class="index_title">
+                <%= link_to t.title, tweet_path(t.id) %><br>
+              </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= tag.tag %></span>
+                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
               <% end %>
             </div>
             <div class=right-container>
@@ -38,7 +40,9 @@
 </div>
 
 
-<%= link_to 'View more...', :controller => "tweets", :action => "index" %>
+<div class="View_more">
+  <%= link_to 'View more...', :controller => "tweets", :action => "index" %>
+</div>
 
 <br>
 
@@ -49,10 +53,12 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %><br>
+              <div class="index_title">
+                <%= link_to t.title, tweet_path(t.id) %><br>
+              </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= tag.tag %></span>
+                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
               <% end %>
             </div>
             <div class=right-container>
@@ -77,5 +83,7 @@
   <% end %>
 </div>
 
-<%= link_to 'View more...', :controller => "tweets", :action => "ranking" %>
+<div class="View_more">
+  <%= link_to 'View more...', :controller => "tweets", :action => "ranking" %>
+</div>
 

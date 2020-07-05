@@ -1,0 +1,5 @@
+.Tag_check_list {
+    columns: 6;
+    column-rule: 1px solid #cdcdcd;
+    column-gap: 2em;
+  }

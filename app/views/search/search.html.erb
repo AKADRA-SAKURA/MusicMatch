@@ -1,6 +1,9 @@
 詳細検索ページだよ
 
-<h3>検索</h3>
+<%= link_to "タグから検索",:controller => "/search", :action => "tagsearch" %>
+
+
+<h3>検索　現在、アーティスト名と曲名での検索が可能</h3>
 <div class ="search-box">
   <%= form_tag({controller:"search",action:"search"}, method: :get) do %>
      <%= text_field_tag :search %>
@@ -12,7 +15,15 @@
   <% @tweets.each do |t| %>
     <div class="tweet">
         <div class="main-box">
-            <div class="left-container"><%= link_to t.title, tweet_path(t.id) %></div>
+            <div class="left-container">
+              <div class="index_title">  
+                <%= link_to t.title, tweet_path(t.id) %>
+              </div>
+              <h4>タグ</h4>
+              <% t.tags.each do |tag| %>
+                <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
+              <% end %>
+            </div>
             <div class=right-container>
               <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               <% if current_user.already_liked?(t) %>
@@ -26,9 +37,6 @@
                   <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
               <% end %>
               投稿者　<%= t.user.user_name %><br>
-              <% t.tags.each do |tag| %>
-                <span class= 'badge badge-primary'><%= tag.tag %></span>
-              <% end %>
             </div>
         </div>
         <p class="time"><%= t.created_at %></p>

@@ -5,7 +5,9 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %><br>
+              <div class="index_title">  
+                <%= link_to t.title, tweet_path(t.id) %><br>
+              </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
                 #<span class= 'badge badge-primary'><%= tag.tag %></span>

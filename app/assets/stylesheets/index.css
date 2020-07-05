@@ -2,13 +2,34 @@
     width: 100%;
     margin: 10px auto;
   }
+  .midashi{
+    background-color:orange; 
+    color:white; 
+    height:100px;  
+    text-align:center; 
+    line-height: 100px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 15px;
+    font-size: 25px;
+  }
+  h2{
+    padding-left: 10px;
+    border-left: 8px solid orangered;
+  }
   h3 {
     margin-bottom: 30px;
   }
   .tweet {
-    border-top: solid orangered;
-    margin-top: 10px;
-    padding-top: 20px;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: black;/*文字色*/
+    background: #FFF;
+    border: solid 3px rgb(255, 205, 112);/*線*/
+    border-radius: 10px;/*角の丸み*/
+  }
+  .index_title{
+    font-size: 25px;
   }
   .main-box {
     margin: 5px 0;
@@ -35,3 +56,6 @@
     color: #e54747;
     margin-left: 20px;
     }
+  .View_more{
+    text-align: right;
+  }
