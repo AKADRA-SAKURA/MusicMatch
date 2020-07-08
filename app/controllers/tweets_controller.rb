@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show, :artist, :ranking]
 
     def index
       @tweets= Tweet.all.all.page(params[:page]).per(20).order(created_at: :desc).includes(:user)

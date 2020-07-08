@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
+
     def index
         @tags = Tag.all.order(tag: :desc)
     end

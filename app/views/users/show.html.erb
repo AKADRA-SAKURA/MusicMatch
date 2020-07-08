@@ -19,7 +19,7 @@
         <div class="main-box">
             <div class="left-container">
               <div class="index_title">        
-                <%= link_to t.title, tweet_path(t.id) %>
+                <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
@@ -27,7 +27,6 @@
               <% end %>
             </div>
             <div class=right-container>
-              <%= link_to t.artist, tweets_artist_path(t.id) %><br>
               (♡<%= t.liked_users.count %>)
               <%= link_to "編集する", edit_tweet_path(t.id) %>
               <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' } %>
@@ -50,7 +49,7 @@
           <div class="main-box">
               <div class="left-container">
                 <div class="index_title">  
-                  <% tweet = Tweet.find_by(id: like.tweet_id) %>      <%= link_to tweet.title, tweet_path(tweet.id) %><br>
+                  <% tweet = Tweet.find_by(id: like.tweet_id) %>      <%= link_to tweet.title, tweet_path(tweet.id) %> / <%= link_to tweet.artist, tweets_artist_path(tweet.id) %><br>
                 </div>
                 <h4>タグ</h4>
                 <% tweet.tags.each do |tag| %>
@@ -58,7 +57,6 @@
                 <% end %>
               </div>
               <div class=right-container>
-                <%= tweet.artist %><br>
                 投稿者　<%= tweet.user.user_name %><br>
               </div>
           </div>
