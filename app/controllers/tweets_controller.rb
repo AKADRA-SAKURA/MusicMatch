@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
       @tweet = Tweet.new(tweet_params)
       @tweet.user_id = current_user.id
       if @tweet.save
-        redirect_to :action => "index"
+        redirect_to "/tweets/#{@tweet.id}/edit"
       else
         redirect_to :action => "new"
       end
@@ -59,7 +59,7 @@ class TweetsController < ApplicationController
 
     private
     def tweet_params
-      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, :image, :used, tag_ids: [])
+      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, :image, :used, { :tag_ids => []})
     end
 
 end
