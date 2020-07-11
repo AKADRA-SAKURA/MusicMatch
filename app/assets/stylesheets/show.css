@@ -1,11 +1,18 @@
+.picture{
+    float: left;
+}
+
 .detail{
     padding: 0.5em 1em;
-    margin: 2em 0;
+    width: 600px;
+    height: fit-content;
+    margin-bottom: 10px;
     font-weight: bold;
     color: black;/*文字色*/
     background: #FFF;
     border: solid 3px rgb(255, 186, 57);/*線*/
     border-radius: 10px;/*角の丸み*/
+    float: right;
 }
 
 .Tag{
@@ -16,6 +23,7 @@
     background: #FFF;
     border: solid 3px rgb(255, 186, 57);/*線*/
     border-radius: 10px;/*角の丸み*/
+    clear: both;
 }
 
 .liked-user {

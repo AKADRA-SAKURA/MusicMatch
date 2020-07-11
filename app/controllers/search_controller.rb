@@ -10,14 +10,22 @@ class SearchController < ApplicationController
     end
 
     def tagsearch
-      @q = Tweet.ransack(params[:q])
-      @tweets = @q.result(distinct: true).order(created_at: :desc)
+      @tweets = Tweet.all
+      @tags = Tag.all
+      if params[:tagnum] != nil && params[:tagnum] != ''
+        matchAlltags = TagRelation.where(tag_id: :tagnum).group(:tag_id).having('count(tweet_id) = ?', :tagnum.length)
+        tweetIds = matchAlltags.map(&:tweet_id)
+        @tag = Tag.where(id: tweetIds)
+      else
+        @tweet = Tweet.all        
+      end
     end
   
   
     private
-      def post_params
-        params.require(:post).permit(:title, :details, label_ids: [] )
+      def tweet_params
+        params.require(:tweet).permit(:title, :artist, tags_ids: [] )
       end
+
     
 end

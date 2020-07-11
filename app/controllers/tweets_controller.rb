@@ -17,6 +17,7 @@ class TweetsController < ApplicationController
     def new
       @tweet = Tweet.new
       @tags = Tag.all.order(tag: :desc)
+      #@tag = @tweet.tags.build
     end
 
     def create
@@ -39,7 +40,7 @@ class TweetsController < ApplicationController
     def edit
       @tweet = Tweet.find(params[:id])
       @tags = Tag.all.order(tag: :desc)
-      @tag = @tweet.tags.build
+      #@tag = @tweet.tags.build
     end
 
     def update

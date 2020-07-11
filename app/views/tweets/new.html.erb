@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'new', :media => "all" %>
 
-<p class="new_tweet_sentence">新規投稿ページだよ</p>
+<h2>新規投稿ページ</h2>
 
 <%= form_for @tweet do |f| %>
   <div class="field">
@@ -21,7 +21,7 @@
   </div>
 
   <div class='form-group'>
-    <h3>特徴タグ</h3>
+    <h3>特徴タグ　※現在使用できません。上記の情報のみで一回新規投稿後、編集でタグ付けしてください</h3>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag) do |tag| %>
         <div class='form-check'>
             <%= tag.label class: 'form-check-label' do %>
