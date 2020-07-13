@@ -1,6 +1,25 @@
+@charset "utf-8";
+
+.show-to-action{
+    text-align: right;
+}
+
 .picture{
     float: left;
 }
+
+
+table {
+	border-collapse: collapse;
+}
+td {
+    border: 1px solid #b7b7b7;
+    padding: 6px 10px;
+}
+td:nth-child(1){
+    width: 150px;
+}
+
 
 .detail{
     padding: 0.5em 1em;

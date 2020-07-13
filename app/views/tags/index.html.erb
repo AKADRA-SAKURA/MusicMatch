@@ -1,5 +1,9 @@
 <h2>タグ一覧</h2>
 
+<div class="tag-index-link">
+  <%= link_to "+タグを追加する", tags_new_path %>
+</div>
+
 <div class="tag-container">
   <% @tags.each do |t| %>
     <div class="tag">
@@ -10,8 +14,3 @@
     </div>
   <% end %>
 </div>
-
-
-<br>
-
-<%= link_to "タグを新しく投稿する", tags_new_path %>

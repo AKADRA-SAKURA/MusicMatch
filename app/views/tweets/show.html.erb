@@ -1,39 +1,61 @@
 
 <h2><%= @tweet.title %> / <%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %></h2>
 
-<% if user_signed_in? && current_user.id == @tweet.user_id %>
-  <%= link_to '編集する', "/tweets/#{@tweet.id}/edit" %>
-  <%= link_to '削除する', "/tweets/#{@tweet.id}",method: :delete, data: { confirm: '削除しますか？' } %>
-<% end %>
+<div class="show-to-action">
+  <% if user_signed_in? && current_user.id == @tweet.user_id %>
+    <%= link_to '編集する', "/tweets/#{@tweet.id}/edit" %>
+    <%= link_to '削除する', "/tweets/#{@tweet.id}",method: :delete, data: { confirm: '削除しますか？' } %>
+  <% end %>
+  <% if user_signed_in? %> <!--いいねボタン開始-->
+    <% if current_user.already_liked?(@tweet) %>
+      <%= link_to tweet_like_path(@tweet.id, @tweet.id), method: :delete do %>
+        <i class="far fa-heart unlike-btn" ></i>
+      <% end %><%= @tweet.liked_users.count %>
+    <% else %>
+      <%= button_to tweet_likes_path(@tweet.id, @tweet.id) do %>
+        <i class="far fa-heart like-btn" ></i>
+      <% end %><%= @tweet.liked_users.count %>
+    <% end %><br>
+  <% else %>
+    (♡<%= @tweet.liked_users.count %>)
+  <% end %> <!--いいねボタン終わり-->    
+</div>
 
 <div class="tweet">
   <div class="picture">
     <%= image_tag @tweet.image_url, :size =>'240x240' %><br>
   </div>
   <div class="detail">
-    タイトル　<%= @tweet.title %><br>
-    アーティスト　<%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %><br>
-    <% if user_signed_in? %> <!--いいねボタン開始-->
-      <% if current_user.already_liked?(@tweet) %>
-        <%= link_to tweet_like_path(@tweet.id, @tweet.id), method: :delete do %>
-          <i class="far fa-heart unlike-btn" ></i>
-        <% end %><%= @tweet.liked_users.count %>
-      <% else %>
-        <%= button_to tweet_likes_path(@tweet.id, @tweet.id) do %>
-          <i class="far fa-heart like-btn" ></i>
-        <% end %><%= @tweet.liked_users.count %>
-      <% end %><br>
-    <% else %>
-      (♡<%= @tweet.liked_users.count %>)
-    <% end %> <!--いいねボタン終わり-->       
-    作詞者　<%= @tweet.writer %><br>
-    作曲者　<%= @tweet.composer %><br>
-    配信先　<%= @tweet.published %><br>
-    CD収録　<%= @tweet.record %><br>
-    タイアップ　<%= @tweet.used %><br>
-    作成者  <%= @tweet.user.user_name %><br>
-    記事作成日時　<%= @tweet.created_at %><br>
-    </div>
+    <table>
+      <tr>
+        <td>タイトル</td>　<td><%= @tweet.title %></td>
+      </tr>
+      <tr>
+        <td>アーティスト</td>　<td><%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %></td>
+      </tr>
+      <tr>   
+        <td>作詞者</td>　<td><%= @tweet.writer %></td>
+      </tr>
+      <tr>
+        <td>作曲者</td>　<td><%= @tweet.composer %></td>
+      </tr>
+      <tr>
+        <td>配信先</td>　<td><%= @tweet.published %></td>
+      </tr>
+      <tr>
+        <td>CD収録</td>　<td><%= @tweet.record %></td>
+      </tr>
+      <tr>
+        <td>タイアップ</td>　<td><%= @tweet.used %></td>
+      </tr>
+      <tr>
+        <td>作成者</td>　<td><%= @tweet.user.user_name %></td>
+      </tr>
+      <tr>
+        <td>記事作成日時</td>　<td><%= @tweet.created_at %></td>
+      </tr>
+    </table>
+  </div>
   <div class="Tag">
     <h4>タグ</h4>
     <% @tweet.tags.each do |tag| %>
@@ -70,5 +92,3 @@
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "Tweet一覧に戻る", tweets_path %>

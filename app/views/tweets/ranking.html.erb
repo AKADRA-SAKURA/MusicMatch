@@ -1,12 +1,15 @@
-<h2>いいね数ランキング</h2>
+<h2>いいね数ランキング</h2><br>
 
 
 <div class="tweets-container">
-  <% @all_ranks.each do |t| %>
+  <% @all_ranks.each.with_index(1) do |t, i| %>
+  <div class="junni"> 第 <%= i %> 位</div>
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-              <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %>
+              <div class="index_title">  
+                <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %>
+              </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
                 <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>

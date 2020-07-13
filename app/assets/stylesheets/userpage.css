@@ -1,0 +1,17 @@
+.userpage-zentai{
+    overflow: hidden;
+}
+
+.profile{
+    float: left;
+    width: 160px;
+}
+
+.userpage-block2{
+    float: right;
+    width: 720px;
+}
+
+.right-container{
+    text-align: right;
+}

@@ -1,13 +1,16 @@
 <h2>マイページだよ</h2><br>
 
+<div class="userpage-zentai">
+
+<div class="pofile">
   <%= image_tag current_user.icon_url_url, :size =>'160x160' %><br>
 
-<%= link_to "プロフィール編集", edit_user_registration_path %>
+  <h1><%= current_user.user_name %></h1>
+  <%= link_to "プロフィール編集", edit_user_registration_path %>
 
-<h4>メールアドレス</h4>
+</div>
 
-<h1><%= current_user.user_name %></h1>
-
+<div class="userpage-block2">
 <h2>投稿した曲</h2>
 
 <br>
@@ -23,16 +26,18 @@
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= tag.tag %></span>
+                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
               <% end %>
             </div>
-            <div class=right-container>
-              (♡<%= t.liked_users.count %>)
-              <%= link_to "編集する", edit_tweet_path(t.id) %>
-              <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' } %>
-            </div>
         </div>
-        <p class="time"><%= t.created_at %></p>
+        <div class="right-container">        
+          (♡<%= t.liked_users.count %>)
+          <%= link_to "編集する", edit_tweet_path(t.id) %>
+          <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' } %>
+        </div>
+        <p class="time">        
+          <%= t.created_at %>
+        </p>
     </div>
   <% end %>
 </div>
@@ -53,16 +58,19 @@
                 </div>
                 <h4>タグ</h4>
                 <% tweet.tags.each do |tag| %>
-                  <span class= 'badge badge-primary'><%= tag.tag %></span>
+                  <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
                 <% end %>
               </div>
-              <div class=right-container>
-                投稿者　<%= tweet.user.user_name %><br>
-              </div>
           </div>
+          <div class="right-container">
+            投稿者　<%= tweet.user.user_name %><br>
+          </div>          
           <p class="time"><%= tweet.created_at %></p>
       </div>    
     <% end %>
   </div>
 </div>
 
+</div>
+
+</div>

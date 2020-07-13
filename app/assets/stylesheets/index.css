@@ -3,7 +3,7 @@
     margin: 10px auto;
   }
   .midashi{
-    background-color:rgb(255, 195, 82); 
+    background: radial-gradient(#ff753e, #fae8ad);
     color:white; 
     height:100px;  
     text-align:center; 
@@ -11,9 +11,12 @@
     font-family: 'Noto Serif JP', serif;
     letter-spacing: 15px;
     font-size: 25px;
+    font-weight: bold;
   }
   h2{
     padding-left: 10px;
+    padding-top: 5px;
+    margin-top: 5px;
     border-left: 8px solid orangered;
   }
   h3 {
@@ -58,4 +61,11 @@
     }
   .View_more{
     text-align: right;
+  }
+  .link_to{
+    color: #ea6357;
+  }
+  .link_to:hover{
+    color: #ea6357;
+    background: #ffee94;
   }

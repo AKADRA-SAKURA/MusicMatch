@@ -1,91 +1,51 @@
 <h2>タグから検索（現在動作しません）</h2>
 
-<div class="tag-container">
-  <%= form_tag({controller:"search",action:"tagsearch"}, method: :get) do %>
-    <% @tags.each do |f| %>
-      <label><input name="tagnum[]" type="checkbox" value="1" ><%= f.tag %></label><br>
-    <% end %>
-    <%= submit_tag '検索'  %>
+<%= form_with(url: search_tagsearch_path, local: true, method: :get) do |form| %>
+  <% @tags.each do |user_tag| %>
+    <li>
+      <%= form.check_box :tag_ids, { multiple: true, include_hidden: false }, user_tag.id %>
+      <%= form.label user_tag.tag %>
+    </li>
+  <% end %>
+  <%= form.submit 'Search' %>
+<% end %>
+
+
+<div class="tweets-container">
+  <% @tag.each do |t| %>
+    <div class="tweet">
+        <div class="main-box">
+            <div class="left-container">
+              <div class="index_title">  
+                <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %>
+              </div>
+              <h4>タグ</h4>
+              <% t.tags.each do |tag| %>
+                <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
+              <% end %>
+            </div>
+            <div class=right-container>
+              <br>
+              <% if user_signed_in? %> 
+                <% if current_user.already_liked?(t) %>
+                  <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
+                    <i class="far fa-heart unlike-btn" ></i>
+                  <% end %><%= t.liked_users.count %>
+                <% else %>
+                  <%= button_to tweet_likes_path(t.id, t.id) do %>
+                    <i class="far fa-heart like-btn" ></i>
+                  <% end %><%= t.liked_users.count %>
+                <% end %><br>
+                <% if user_signed_in? && current_user.id == t.user_id %>
+                    <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
+                <% end %>
+              <% else %>
+                (♡<%= t.liked_users.count %>)
+              <% end %> 
+              投稿者　<%= t.user.user_name %><br>
+            </div>
+        </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
   <% end %>
 </div>
-
-
-<% if params[:tagnum] != nil && params[:tagnum] != '' %>
-  <div class="tweets-container">
-    <% @tag.each do |t| %>
-      <div class="tweet">
-          <div class="main-box">
-              <div class="left-container">
-                <div class="index_title">  
-                  <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %><br>
-                </div>
-                <h4>タグ</h4>
-                <% t.tags.each do |tag| %>
-                  #<span class= 'badge badge-primary'><%= tag.tag %></span>
-                <% end %>
-              </div>
-              <div class=right-container>
-                <br>
-                <% if user_signed_in? %>
-                  <% if current_user.already_liked?(t) %>
-                    <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
-                      <i class="far fa-heart unlike-btn" ></i>
-                    <% end %><%= t.liked_users.count %>
-                  <% else %>
-                    <%= button_to tweet_likes_path(t.id, t.id) do %>
-                      <i class="far fa-heart like-btn" ></i>
-                    <% end %><%= t.liked_users.count %>
-                  <% end %><br>
-                  <% if user_signed_in? && current_user.id == t.user_id %>
-                      <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
-                  <% end %>
-                <% else %>
-                  (♡<%= t.liked_users.count %>)
-                <% end %> 
-                投稿者　<%= t.user.user_name %><br>
-              </div>
-          </div>
-          <p class="time"><%= t.created_at %></p>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="tweets-container">
-    <% @tweet.each do |t| %>
-      <div class="tweet">
-          <div class="main-box">
-              <div class="left-container">
-                <div class="index_title">  
-                  <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %>
-                </div>
-                <h4>タグ</h4>
-                <% t.tags.each do |tag| %>
-                  <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
-                <% end %>
-              </div>
-              <div class=right-container>
-                <br>
-                <% if user_signed_in? %> <!--いいねボタン開始-->
-                  <% if current_user.already_liked?(t) %>
-                    <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
-                      <i class="far fa-heart unlike-btn" ></i>
-                    <% end %><%= t.liked_users.count %>
-                  <% else %>
-                    <%= button_to tweet_likes_path(t.id, t.id) do %>
-                      <i class="far fa-heart like-btn" ></i>
-                    <% end %><%= t.liked_users.count %>
-                  <% end %><br>
-                  <% if user_signed_in? && current_user.id == t.user_id %>
-                      <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
-                  <% end %>
-                <% else %>
-                  (♡<%= t.liked_users.count %>)
-                <% end %> <!--いいねボタン終わり--> 
-                投稿者　<%= t.user.user_name %><br>
-              </div>
-          </div>
-          <p class="time"><%= t.created_at %></p>
-      </div>
-    <% end %>
-  </div>
-<% end %>
