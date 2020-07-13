@@ -10,29 +10,14 @@ class SearchController < ApplicationController
     end
 
     def tagsearch
-      #@tweets = Tweet.all
       @tags = Tag.all
-      if params[:tag_ids] != nil && params[:tag_ids] != ''
-        #:format == :tag_ids
-        #@tag = Tag.where(params[:format])    
-        selected_tag_ids = selected_tags_params # Tag id array checked with form.
-        filtered_tweet_ids = Tweet.filter(selected_tag_ids) # Memo id array filtered with checked tag by And condition.
-        @tag = Tweet.where(id: filtered_tweet_ids) # Memos instance selected with filtered memo ids.
+      if params[:tag_ids] != nil && params[:tag_ids] != '' 
+        selected_tag_ids = selected_tags_params 
+        filtered_tweet_ids = filter(selected_tag_ids) 
+        @tag = Tweet.where(id: filtered_tweet_ids) 
       else
         @tag = Tweet.all
       end
-      #if params[:keyword] != nil && params[:keyword] != ''
-        #split_keywords = params[:keyword].split(/[[:blank:]]+/) # 空白で分割
-        #@tag = Tag.where('tag LIKE(?)', "%#{params[:keyword]}%")
-        #tagid = Tag.find_by(id: :@tag)
-        #@tweet = Tweet.where(tag: tag)
-        #@tag = Tag.find(params[:id])
-        #matchAlltags = TagRelation.where(tag_id: :tagnum).group(:tag_id).having('count(tweet_id) = ?', :tagnum.length)
-        #tweetIds = matchAlltags.map(&:tweet_id)
-        #@tag = Tag.where(id: tweetIds)
-      #else
-        #@tweet = Tweet.all        
-      #end
     end
   
   

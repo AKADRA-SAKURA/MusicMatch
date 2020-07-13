@@ -1,5 +1,6 @@
 <h2>タグから検索（現在動作しません）</h2>
 
+<div class="tag-container">
 <%= form_with(url: search_tagsearch_path, local: true, method: :get) do |form| %>
   <% @tags.each do |user_tag| %>
     <li>
@@ -9,7 +10,7 @@
   <% end %>
   <%= form.submit 'Search' %>
 <% end %>
-
+</div>
 
 <div class="tweets-container">
   <% @tag.each do |t| %>
