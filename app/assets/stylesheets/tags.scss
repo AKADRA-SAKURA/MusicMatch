@@ -6,6 +6,22 @@
     columns: 6;
     column-rule: 1px solid #cdcdcd;
     column-gap: 2em;
+    clear: right;
+  }
+  .link-to-tagsearch{
+    text-align: center;
+    margin: 0 0 0 auto;
+    padding: 6px 20px;
+    border: 4px solid #ffd386;
+    border-radius: 10px;
+    background: #ff753e;
+    font-size: 20px;
+    color: #ffffff;
+    width: fit-content;
+    float: right;
+   }
+   .link-to-tagsearch:hover {
+    background: #ffd386;
   }
 .tag-index-link{
   text-align: center;
@@ -16,8 +32,9 @@
 	background: #ff753e;
 	font-size: 20px;
   color: #ffffff;
-  width: fit-content;;
+  width: fit-content;
+  float: right;
 }
-.action:hover {
+.tag-index-link:hover {
 	background: #ffd386;
 }

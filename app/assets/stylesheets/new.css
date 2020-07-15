@@ -21,6 +21,9 @@
     margin-top: 50px;
     margin-bottom: 30px;
   }
+  .input[type="submit"]:hover {
+    background: #ffd386;
+  }
 
 .form-group {
   columns: 6;

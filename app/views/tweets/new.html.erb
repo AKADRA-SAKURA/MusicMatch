@@ -5,7 +5,7 @@
 
 <%= form_for @tweet do |f| %>
   <div class="field">
-    <%= f.label :title, '曲名' %>
+    <%= f.label :title, '曲名' %><br>
     <%= f.text_field :title, :size => 140 %><br>
     <%= f.label :artist, 'アーティスト' %>
     <%= f.text_field :artist, :size => 140 %><br>
@@ -15,7 +15,7 @@
     <%= f.text_field :composer, :size => 140 %><br>
     <%= f.label :published, '配信先' %>
     <%= f.text_field :published, :size => 140 %><br>
-    <%= f.label :record, '収録' %>
+    <%= f.label :record, '収録' %><br>
     <%= f.text_field :record, :size => 140 %><br>
     <%= f.label :used, 'タイアップ' %>
     <%= f.text_field :used, :size => 140 %><br>
@@ -25,10 +25,8 @@
     <%= f.label :image, 'ジャケット写真 ※許可がある場合のみ' %><br>
     <%= f.file_field :image %>
   </div>
-
-  <%= f.submit "タグ付けへ" %><br>
+  
+  <div class="new-form-submit">
+    <%= f.submit "タグ付けへ-->" %><br>
+  </div>
 <% end %>
-
-
-
-<%= link_to "楽曲一覧に戻る", tweets_path %>

@@ -2,20 +2,22 @@
 <h2>楽曲情報編集ページだよ</h2>
 
 <%= form_for @tweet do |f| %>
-  <%= f.label :title, '曲名' %>
-  <%= f.text_field :title, :size => 140 %><br>
-  <%= f.label :artist, 'アーティスト' %>
-  <%= f.text_field :artist, :size => 140 %><br>
-  <%= f.label :writer, '作詞者' %>
-  <%= f.text_field :writer, :size => 140 %><br>
-  <%= f.label :composer, '作曲者' %>
-  <%= f.text_field :composer, :size => 140 %><br>
-  <%= f.label :published, '配信先' %>
-  <%= f.text_field :published, :size => 140 %><br>
-  <%= f.label :record, '収録先' %>
-  <%= f.text_field :record, :size => 140 %><br>
-  <%= f.label :used, 'タイアップ' %>
-  <%= f.text_field :used, :size => 140 %><br>
+  <div class="field">
+    <%= f.label :title, '曲名' %><br>
+    <%= f.text_field :title, :size => 140 %><br>
+    <%= f.label :artist, 'アーティスト' %>
+    <%= f.text_field :artist, :size => 140 %><br>
+    <%= f.label :writer, '作詞者' %>
+    <%= f.text_field :writer, :size => 140 %><br>
+    <%= f.label :composer, '作曲者' %>
+    <%= f.text_field :composer, :size => 140 %><br>
+    <%= f.label :published, '配信先' %>
+    <%= f.text_field :published, :size => 140 %><br>
+    <%= f.label :record, '収録' %><br>
+    <%= f.text_field :record, :size => 140 %><br>
+    <%= f.label :used, 'タイアップ' %>
+    <%= f.text_field :used, :size => 140 %><br>
+  </div>
 
   <div class='form-group'>
     <h3>特徴タグ</h3>

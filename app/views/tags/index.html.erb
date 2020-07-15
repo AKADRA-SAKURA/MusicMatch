@@ -1,5 +1,9 @@
 <h2>タグ一覧</h2>
 
+<div class="link-to-tagsearch">
+  <%= link_to "複数タグで絞り込む", search_tagsearch_path %>
+</div>
+
 <div class="tag-index-link">
   <%= link_to "+タグを追加する", tags_new_path %>
 </div>
@@ -7,9 +11,9 @@
 <div class="tag-container">
   <% @tags.each do |t| %>
     <div class="tag">
-      #<%= link_to t.tag, tags_search_path(t.id) %>
+      #<%= link_to t.tag, tags_search_path(t.id), :class=>"link_to" %>
       <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "削除", "/tags/#{t.id}", method: :delete, data: { confirm: '削除しますか？' } %>
+        <%= link_to "削除", "/tags/#{t.id}", method: :delete, data: { confirm: '削除しますか？' }, :style=>"color:gray;" %>
       <% end %>
     </div>
   <% end %>

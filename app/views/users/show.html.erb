@@ -1,17 +1,17 @@
-<h2>マイページだよ</h2><br>
+<h2>マイページ</h2><br>
 
 <div class="userpage-zentai">
 
-<div class="pofile">
+<div class="profile">
   <%= image_tag current_user.icon_url_url, :size =>'160x160' %><br>
 
   <h1><%= current_user.user_name %></h1>
-  <%= link_to "プロフィール編集", edit_user_registration_path %>
+  <%= link_to "プロフィール編集", edit_user_registration_path, :class=>"link_to" %>
 
 </div>
 
 <div class="userpage-block2">
-<h2>投稿した曲</h2>
+  <div class="userpage1">投稿した曲</div>
 
 <br>
 <%= page_entries_info @tweet %>
@@ -22,18 +22,18 @@
         <div class="main-box">
             <div class="left-container">
               <div class="index_title">        
-                <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %><br>
+                <%= link_to t.title, tweet_path(t.id), :class=>"link_to" %> / <%= link_to t.artist, tweets_artist_path(t.id), :class=>"link_to" %><br>
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
+                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to" %></span>
               <% end %>
             </div>
         </div>
         <div class="right-container">        
           (♡<%= t.liked_users.count %>)
-          <%= link_to "編集する", edit_tweet_path(t.id) %>
-          <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' } %>
+          <%= link_to "編集する", edit_tweet_path(t.id), :class=>"link_to" %>
+          <%= link_to '削除する', "/tweets/#{t.id}",method: :delete, data: { confirm: '削除しますか？' }, :class=>"link_to" %>
         </div>
         <p class="time">        
           <%= t.created_at %>
@@ -45,7 +45,7 @@
 <%= paginate @tweet %>
 
 
-<h2>いいねした曲</h2>
+  <div class="userpage1">いいねした曲</div>
 
 <div class="tweets-container">
   <div class="contents_like">
@@ -54,11 +54,11 @@
           <div class="main-box">
               <div class="left-container">
                 <div class="index_title">  
-                  <% tweet = Tweet.find_by(id: like.tweet_id) %>      <%= link_to tweet.title, tweet_path(tweet.id) %> / <%= link_to tweet.artist, tweets_artist_path(tweet.id) %><br>
+                  <% tweet = Tweet.find_by(id: like.tweet_id) %>      <%= link_to tweet.title, tweet_path(tweet.id), :class=>"link_to" %> / <%= link_to tweet.artist, tweets_artist_path(tweet.id), :class=>"link_to" %><br>
                 </div>
                 <h4>タグ</h4>
                 <% tweet.tags.each do |tag| %>
-                  <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
+                  <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to" %></span>
                 <% end %>
               </div>
           </div>

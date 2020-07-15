@@ -1,16 +1,17 @@
-<h2>タグから検索（現在動作しません）</h2>
+<h2>タグから絞り込み</h2>
 
 <div class="tag-container">
-<%= form_with(url: search_tagsearch_path, local: true, method: :get) do |form| %>
-  <% @tags.each do |user_tag| %>
-    <li>
-      <%= form.check_box :tag_ids, { multiple: true, include_hidden: false }, user_tag.id %>
-      <%= form.label user_tag.tag %>
-    </li>
+  <%= form_with(url: search_tagsearch_path, local: true, method: :get) do |form| %>
+    <% @tags.each do |user_tag| %>
+        <%= form.check_box :tag_ids, { multiple: true, include_hidden: false }, user_tag.id %>
+        <%= form.label user_tag.tag %><br>
+    <% end %>
+    <%= form.submit '絞り込む' %>
   <% end %>
-  <%= form.submit 'Search' %>
-<% end %>
 </div>
+
+<br>
+<%= page_entries_info @tag %>
 
 <div class="tweets-container">
   <% @tag.each do |t| %>
@@ -18,27 +19,27 @@
         <div class="main-box">
             <div class="left-container">
               <div class="index_title">  
-                <%= link_to t.title, tweet_path(t.id) %> / <%= link_to t.artist, tweets_artist_path(t.id) %>
+                <%= link_to t.title, tweet_path(t.id), :class=>"link_to" %> / <%= link_to t.artist, tweets_artist_path(t.id), :class=>"link_to" %>
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id) %></span>
+                <span class= 'badge badge-primary'>#<%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to" %></span>
               <% end %>
             </div>
             <div class=right-container>
               <br>
               <% if user_signed_in? %> 
                 <% if current_user.already_liked?(t) %>
-                  <%= link_to tweet_like_path(t.id, t.id), method: :delete do %>
-                    <i class="far fa-heart unlike-btn" ></i>
-                  <% end %><%= t.liked_users.count %>
+                  <%= button_to tweet_like_path(t.id, t.id), method: :delete do %>
+                    <i class="far fa-heart unlike-btn" ></i><%= t.liked_users.count %>
+                  <% end %>
                 <% else %>
                   <%= button_to tweet_likes_path(t.id, t.id) do %>
-                    <i class="far fa-heart like-btn" ></i>
-                  <% end %><%= t.liked_users.count %>
+                    <i class="far fa-heart like-btn" ></i><%= t.liked_users.count %>
+                  <% end %>
                 <% end %><br>
                 <% if user_signed_in? && current_user.id == t.user_id %>
-                    <%= link_to '編集する', "/tweets/#{t.id}/edit" %>　
+                    <%= link_to '編集する', "/tweets/#{t.id}/edit", :class=>"link_to" %>　
                 <% end %>
               <% else %>
                 (♡<%= t.liked_users.count %>)
@@ -50,3 +51,6 @@
     </div>
   <% end %>
 </div>
+
+
+<%= paginate @tag %>

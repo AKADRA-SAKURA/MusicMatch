@@ -1,20 +1,20 @@
 
-<h2><%= @tweet.title %> / <%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %></h2>
+<h2><%= @tweet.title %> / <%= link_to @tweet.artist, tweets_artist_path(@tweet.id) , :class=>"link_to" %></h2>
 
 <div class="show-to-action">
   <% if user_signed_in? && current_user.id == @tweet.user_id %>
-    <%= link_to '編集する', "/tweets/#{@tweet.id}/edit" %>
+    <%= link_to img,"/tweets/#{@tweet.id}/edit" src="https://res.cloudinary.com/dtyelpqc0/image/upload/v1594727526/henshusuru_idhzqu.png" alt="henshusuru" %>
     <%= link_to '削除する', "/tweets/#{@tweet.id}",method: :delete, data: { confirm: '削除しますか？' } %>
   <% end %>
   <% if user_signed_in? %> <!--いいねボタン開始-->
     <% if current_user.already_liked?(@tweet) %>
-      <%= link_to tweet_like_path(@tweet.id, @tweet.id), method: :delete do %>
-        <i class="far fa-heart unlike-btn" ></i>
-      <% end %><%= @tweet.liked_users.count %>
+      <%= button_to tweet_like_path(@tweet.id, @tweet.id), method: :delete do %>
+        <i class="far fa-heart unlike-btn" ></i><%= @tweet.liked_users.count %>
+      <% end %>
     <% else %>
       <%= button_to tweet_likes_path(@tweet.id, @tweet.id) do %>
-        <i class="far fa-heart like-btn" ></i>
-      <% end %><%= @tweet.liked_users.count %>
+        <i class="far fa-heart like-btn" ></i><%= @tweet.liked_users.count %>
+      <% end %>
     <% end %><br>
   <% else %>
     (♡<%= @tweet.liked_users.count %>)
@@ -31,7 +31,7 @@
         <td>タイトル</td>　<td><%= @tweet.title %></td>
       </tr>
       <tr>
-        <td>アーティスト</td>　<td><%= link_to @tweet.artist, tweets_artist_path(@tweet.id) %></td>
+        <td>アーティスト</td>　<td><%= link_to @tweet.artist, tweets_artist_path(@tweet.id), :class=>"link_to" %></td>
       </tr>
       <tr>   
         <td>作詞者</td>　<td><%= @tweet.writer %></td>
@@ -59,7 +59,7 @@
   <div class="Tag">
     <h4>タグ</h4>
     <% @tweet.tags.each do |tag| %>
-      #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id) %></span>
+      #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to" %></span>
     <% end %>
   </div>
 

@@ -3,15 +3,24 @@
 }
 
 .profile{
-    float: left;
     width: 160px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .userpage-block2{
-    float: right;
     width: 720px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .right-container{
     text-align: right;
+}
+
+.userpage1{
+    background-color: whitesmoke;
+    font-size: 25px;
 }
