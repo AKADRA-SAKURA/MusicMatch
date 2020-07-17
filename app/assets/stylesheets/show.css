@@ -1,7 +1,14 @@
 @charset "utf-8";
 
-.henshusuru{
-    size: 50%;
+.image_henshusuru{
+    width: 40px;
+    height: 40px;
+}
+
+.image_sakujosuru{
+    width: 40px;
+    height: 40px;
+    white-space: nowrap;
 }
 
 .show-to-action{
