@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: MusicMatch_production
-  username: MusicMatch
-  password: <%= ENV['MUSICMATCH_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+#  <<: *default
+#  database: MusicMatch_production
+#  username: MusicMatch
+#  password: <%= ENV['MUSICMATCH_DATABASE_PASSWORD'] %>

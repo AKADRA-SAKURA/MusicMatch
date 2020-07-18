@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Music Match(仮)</title>
+    <title>Enmusiquer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
 
   <body>
     <header>
-      <div class="title"><%= link_to "Music Match(仮)",hello_index_path %></div>
+      <div class="title"><%= link_to "Enmusiquer",hello_index_path %></div>
       <div class="header-list">
       <ul>
         <li><%= link_to "ランキング",:controller => "/tweets", :action => "ranking" %></li>
