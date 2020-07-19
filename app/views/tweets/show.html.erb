@@ -28,31 +28,31 @@
   <div class="detail">
     <table>
       <tr>
-        <td>タイトル</td>　<td><%= @tweet.title %></td>
+        <td>タイトル</td> <td><%= @tweet.title %></td>
       </tr>
       <tr>
-        <td>アーティスト</td>　<td><%= link_to @tweet.artist, tweets_artist_path(@tweet.id), :class=>"link_to" %></td>
+        <td>アーティスト</td> <td><%= link_to @tweet.artist, tweets_artist_path(@tweet.id), :class=>"link_to" %></td>
       </tr>
       <tr>   
-        <td>作詞者</td>　<td><%= @tweet.writer %></td>
+        <td>作詞者</td> <td><%= @tweet.writer %></td>
       </tr>
       <tr>
-        <td>作曲者</td>　<td><%= @tweet.composer %></td>
+        <td>作曲者</td> <td><%= @tweet.composer %></td>
       </tr>
       <tr>
-        <td>配信先</td>　<td><%= @tweet.published %></td>
+        <td>配信先</td> <td><%= @tweet.published %></td>
       </tr>
       <tr>
-        <td>CD収録</td>　<td><%= @tweet.record %></td>
+        <td>CD収録</td> <td><%= @tweet.record %></td>
       </tr>
       <tr>
-        <td>タイアップ</td>　<td><%= @tweet.used %></td>
+        <td>タイアップ</td> <td><%= @tweet.used %></td>
       </tr>
       <tr>
-        <td>作成者</td>　<td><%= @tweet.user.user_name %></td>
+        <td>作成者</td> <td><%= @tweet.user.user_name %></td>
       </tr>
       <tr>
-        <td>記事作成日時</td>　<td><%= @tweet.created_at %></td>
+        <td>記事作成日時</td> <td><%= @tweet.created_at %></td>
       </tr>
     </table>
   </div>
@@ -76,9 +76,9 @@
   <h4>コメント一覧</h4>
   <% @comments.each do |c| %>
     <div>
-      (投稿者)　<%= c.user.user_name unless c.user.blank? %>
+      (投稿者) <%= c.user.user_name unless c.user.blank? %>
       <br>
-      (コメント)　<%= c.comment %>
+      (コメント) <%= c.comment %>
     </div>
       <br>
   <% end %>
