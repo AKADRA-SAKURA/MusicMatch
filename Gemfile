@@ -57,6 +57,7 @@ gem 'audiojs-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
+gem 'seed_dump'
 
 group :production do
   gem 'pg'
