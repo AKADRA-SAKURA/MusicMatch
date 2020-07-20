@@ -1,6 +1,6 @@
 Tag.create!([
-  {tag: "クール", user_id: nil},
-  {tag: " 3音サビ", user_id: nil},
+  {tag: "クール", user_id: 4},
+  {tag: " 3音サビ", user_id: 4},
   {tag: "バラード", user_id: 4},
   {tag: "声加工", user_id: 4},
   {tag: "EDM", user_id: 4},
