@@ -16,6 +16,7 @@
       <div class="title"><%= link_to "Enmusiquer",hello_index_path %></div>
       <div class="header-list">
       <ul>
+        <li><%= link_to "Enmusiquerとは",:controller => "/hello", :action => "about" %></li>
         <li><%= link_to "ランキング",:controller => "/tweets", :action => "ranking" %></li>
         <li><%= link_to "楽曲一覧",:controller => "/tweets", :action => "index" %></li>
         <li><%= link_to "タグ一覧",:controller => "/tags", :action => "index" %></li>

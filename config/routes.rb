@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'hello#index'
 
   get 'hello/index' => 'hello#index'
+  get 'hello/about' => 'hello#about'
 
   get 'tweets' => 'tweets#index'
   get 'tweets/new' => 'tweets#new'
