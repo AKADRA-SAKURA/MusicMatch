@@ -24,7 +24,7 @@
         <li>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <%= current_user.user_name %>さん
+            <div class="name"><%= current_user.user_name %>さん</div>
             <a href="/users/<%= current_user.id %>">マイページ</a>
             <%= link_to "新規投稿",tweets_new_path %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
