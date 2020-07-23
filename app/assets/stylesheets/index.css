@@ -12,6 +12,7 @@
     letter-spacing: 15px;
     font-size: 25px;
     font-weight: bold;
+    -webkit-text-size-adjust: 100%;
   }
   h2{
     padding-left: 10px;

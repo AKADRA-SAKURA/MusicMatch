@@ -84,6 +84,7 @@
   <% end %>
 
   <% if user_signed_in? %>
+    ↓タグでは表せない推しポイントを語りましょう↓
     <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
       <%= f.text_area :comment%>
       <%= button_tag type: "submit" do %>
