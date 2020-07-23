@@ -6,8 +6,8 @@ class TweetsController < ApplicationController
     end
 
     def artist
-      art = Tweet.find(params[:format]).artist
-      @tweets = Tweet.where(artist: art)
+      @art = Tweet.find(params[:format]).artist
+      @tweets = Tweet.where(artist: @art)
     end
 
     def ranking
