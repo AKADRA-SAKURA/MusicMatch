@@ -20,7 +20,16 @@
     text-align: right;
 }
 
-.userpage1{
-    background-color: whitesmoke;
+.userpage1{ 
+    padding: 0.5em;/*文字周りの余白*/
+    color: #010101;/*文字色*/
+    background: #fff2ea;/*背景色*/
+    border-bottom: solid 3px #b6a751;/*下線*/
     font-size: 25px;
+    font-weight: bold;
+}
+
+hr.style1 {
+	background-color: #fff;
+	border-top: 2px dotted #8c8b8b;
 }
