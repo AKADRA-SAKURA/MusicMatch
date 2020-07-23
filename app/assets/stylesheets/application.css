@@ -101,7 +101,7 @@
     background-repeat: no-repeat;
   }
 html{
-  background: url(https://res.cloudinary.com/dtyelpqc0/image/upload/v1593957092/HomeBackground.png);
+  background: rgb(255, 225, 216);
   background-size: 100% 200%;
 }
 .name{
