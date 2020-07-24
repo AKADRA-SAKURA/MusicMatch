@@ -1,3 +1,39 @@
 // Place all the styles related to the search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#form4{
+    position:relative;
+    max-width:300px;	
+    margin-bottom:80px;
+    margin-top: 20px;
+}
+#sbox4{
+    height:50px;
+    padding:0 10px; 
+    position:absolute; 
+    left:0;
+    top:0; 
+    border-radius:25px;
+    outline:0;
+    background:#eee;
+}
+#sbtn4{
+    height:50px;
+    width:50px;	
+    position:absolute; 
+    left:250px; 
+    top:0;
+    background:#ff971f;
+    color:#fff;
+    border:none;
+    border-radius:0 25px 25px 0;
+}
+#sbtn4 .fa-search{
+    font-size:20px;	
+    position:absolute;
+    top:30%;
+    left:30%;	
+}
+#sbtn4:hover{
+    color:#888;
+}

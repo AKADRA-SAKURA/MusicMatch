@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  * {
     padding: 0;
     margin: 0;
@@ -30,6 +31,7 @@
     display: flex;
     flex-flow: column;
     min-height: 100vh;
+    background-color: rgb(255, 229, 142);
   }
   header {
     background-color: red;
@@ -90,7 +92,6 @@
     background-repeat: no-repeat;
   }
 html{
-  background: rgb(255, 225, 216);
   background-size: 100% 200%;
 }
 .name{

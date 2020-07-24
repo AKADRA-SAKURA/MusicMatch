@@ -59,6 +59,7 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'seed_dump'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'font-awesome-sass'
 
 group :production do
   gem 'pg'
