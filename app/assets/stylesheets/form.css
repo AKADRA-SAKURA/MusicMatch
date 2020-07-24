@@ -5,3 +5,11 @@ input[type="text"] {
 .new-form-submit{
   text-align: right;
 }
+.field{
+  width: 400px;
+}
+textarea{
+  resize: vertical;
+  width:400px;
+  height:100px;
+}

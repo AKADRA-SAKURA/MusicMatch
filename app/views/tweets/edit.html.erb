@@ -3,20 +3,22 @@
 
 <%= form_for @tweet do |f| %>
   <div class="field">
-    <%= f.label :title, '曲名' %><br>
-    <%= f.text_field :title, :size => 140 %><br>
+    <%= f.label :title, '曲名' %>
+    <%= f.text_field :title %><br><br>
     <%= f.label :artist, 'アーティスト' %>
-    <%= f.text_field :artist, :size => 140 %><br>
+    <%= f.text_field :artist %><br><br>
     <%= f.label :writer, '作詞者' %>
-    <%= f.text_field :writer, :size => 140 %><br>
+    <%= f.text_field :writer %><br><br>
     <%= f.label :composer, '作曲者' %>
-    <%= f.text_field :composer, :size => 140 %><br>
-    <%= f.label :published, '配信先' %>
-    <%= f.text_field :published, :size => 140 %><br>
+    <%= f.text_field :composer %><br><br>
+  </div>
+  <div class="areafield">    
+    <%= f.label :published, '配信先' %><br>
+    <%= f.text_area :published %><br><br>
     <%= f.label :record, '収録' %><br>
-    <%= f.text_field :record, :size => 140 %><br>
-    <%= f.label :used, 'タイアップ' %>
-    <%= f.text_field :used, :size => 140 %><br>
+    <%= f.text_area :record %><br><br>
+    <%= f.label :used, 'タイアップ' %><br>
+    <%= f.text_area :used %><br><br>
   </div>
 
   <div class='form-group'>
@@ -31,7 +33,7 @@
     <% end %>
   </div>
   
-  <div class="field">
+  <div class="fieldphoto">
     <%= f.label :image, 'ジャケット写真 ※許可がある場合のみ' %><br>
     <%= f.file_field :image %>
   </div>
