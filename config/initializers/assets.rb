@@ -13,5 +13,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( application )
-Rails.application.config.assets.precompile += %w( stylesheets )
-Rails.application.config.assets.precompile += %w( manifest.js )
