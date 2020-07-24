@@ -9,7 +9,7 @@ class SearchController < ApplicationController
     end
 
     def tagsearch
-      @tags = Tag.all.order(tag: :desc)
+      @tags = Tag.all.order(tag: :asc)
       if params[:tag_ids] != nil && params[:tag_ids] != '' 
         selected_tag_ids = selected_tags_params 
         filtered_tweet_ids = filter(selected_tag_ids) 

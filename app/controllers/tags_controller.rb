@@ -5,7 +5,7 @@ class TagsController < ApplicationController
       if params[:search] != nil && params[:search] != ''
         @tags = Tag.where("tag LIKE ? ", "%" + params[:search] + "%")
       else
-        @tags = Tag.all.order(tag: :desc)
+        @tags = Tag.all.order(tag: :asc)
       end
     end
 
@@ -14,8 +14,6 @@ class TagsController < ApplicationController
     end
 
     def search
-        #tag = Tag.find_by(id: :format)    
-        #@tweets = Tweet.where(tag: tag)
         @tag = Tag.find(params[:format])
     end
 
