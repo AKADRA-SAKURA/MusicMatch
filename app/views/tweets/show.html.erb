@@ -14,11 +14,11 @@
     <% if user_signed_in? %> <!--いいねボタン開始-->
       <% if current_user.already_liked?(@tweet) %>
         <%= button_to tweet_like_path(@tweet.id, @tweet.id), method: :delete do %>
-        <i class="far fa-heart unlike-btn" ></i><%= @tweet.liked_users.count %>
+        <i class="fas fa-heart" ></i><%= @tweet.liked_users.count %>
       <% end %>
     <% else %>
       <%= button_to tweet_likes_path(@tweet.id, @tweet.id) do %>
-      <i class="far fa-heart like-btn" ></i><%= @tweet.liked_users.count %>
+      <i class="far fa-heart" ></i><%= @tweet.liked_users.count %>
         <% end %>
       <% end %><br>
     <% else %>

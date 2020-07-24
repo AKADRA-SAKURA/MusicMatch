@@ -17,11 +17,11 @@
               <br>
                 <% if current_user.already_liked?(t) %>
                   <%= button_to tweet_like_path(t.id, t.id), method: :delete do %>
-                    <i class="far fa-heart unlike-btn" ></i><%= t.liked_users.count %>
+                    <i class="fas fa-heart" ></i><%= t.liked_users.count %>
                   <% end %>
                 <% else %>
                   <%= button_to tweet_likes_path(t.id, t.id) do %>
-                    <i class="far fa-heart like-btn" ></i><%= t.liked_users.count %>
+                    <i class="far fa-heart" ></i><%= t.liked_users.count %>
                   <% end %>
                 <% end %><br>
               <% if user_signed_in? && current_user.id == t.user_id %>
