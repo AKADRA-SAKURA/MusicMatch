@@ -2,7 +2,11 @@ class TagsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search]
 
     def index
+      if params[:search] != nil && params[:search] != ''
+        @tags = Tag.where("tag LIKE ? ", "%" + params[:search] + "%")
+      else
         @tags = Tag.all.order(tag: :desc)
+      end
     end
 
     def new

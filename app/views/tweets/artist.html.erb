@@ -10,7 +10,7 @@
               </div>
               <h4>タグ</h4>
               <% t.tags.each do |tag| %>
-                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to" %></span>
+                #<span class= 'badge badge-primary'><%= link_to tag.tag, tags_search_path(tag.id), :class=>"link_to_tag" %></span>
               <% end %>
             </div>
             <div class=right-container>

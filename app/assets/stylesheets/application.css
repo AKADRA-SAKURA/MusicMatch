@@ -63,17 +63,6 @@
     -o-transition: all 0.2s;
     transition: all 0.2s;
   }
-  .header-list:active {
-    -webkit-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px rgb(255, 102, 0);
-    -moz-box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px rgb(255, 102, 0);
-    box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px rgb(255, 102, 0);
-  }
   header ul {
     display: flex;
   }
@@ -107,4 +96,21 @@ html{
 .name{
   color: black;
   text-shadow: initial;
+}
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #ffd993;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+  color: black;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
 }

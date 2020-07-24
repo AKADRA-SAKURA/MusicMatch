@@ -58,6 +58,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'seed_dump'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :production do
   gem 'pg'

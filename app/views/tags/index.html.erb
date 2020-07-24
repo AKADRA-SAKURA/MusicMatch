@@ -8,6 +8,13 @@
   <%= link_to "+タグを追加する", tags_new_path %>
 </div>
 
+<form action="#" method="get">
+  <div class ="search-box">
+    <input type="text" name="search" placeholder="タグ名検索">
+    <input type="submit" value="検索">
+  </div>
+</form>
+
 <div class="tag-container">
   <% @tags.each do |t| %>
     <div class="tag">
