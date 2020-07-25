@@ -9,6 +9,9 @@
   <button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
 </form>
 
+<br>
+<%= page_entries_info @tweets %>
+
 <div class="tweets-container">
   <% @tweets.each do |t| %>
     <div class="tweet">
@@ -47,3 +50,6 @@
     </div>
   <% end %>
 </div>
+
+
+<%= paginate @tweets, :window => 4 %>
