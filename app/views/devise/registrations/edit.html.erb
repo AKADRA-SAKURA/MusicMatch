@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, 'パスワード' %> <i>(パスワードを変えない場合は空欄にしてください)</i><br />
+    <%= f.label :password, '新しいパスワード' %> <i>(パスワードを変えない場合は空欄にしてください)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'パスワード再入力' %><br />
+    <%= f.label :password_confirmation, '新しいパスワード再入力' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -37,7 +37,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password, '変更を適用するには現在のパスワードを入力してください' %> <br />
+    <%= f.label :current_password, '※変更を適用するには現在のパスワードを入力してください' %> <br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
