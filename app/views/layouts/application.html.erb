@@ -2,7 +2,7 @@
 <html>
 <link rel="shortcut icon" href="https://res.cloudinary.com/dtyelpqc0/image/upload/v1595255561/favicons/favicon_x9l9ht.ico" type="logo.icon" />   
 <link rel="icon" href="https://res.cloudinary.com/dtyelpqc0/image/upload/v1595255561/favicons/favicon_x9l9ht.ico" type="logo.icon" /> 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
   <head>
     <title>Enmusiquer</title>
     <%= csrf_meta_tags %>
@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script>
+    $(function() {
+      const hum = $('#hamburger, .close')
+      const nav = $('.header-list')
+      hum.on('click', function(){
+        nav.toggleClass('toggle');
+      });
+    });
+    </script>
 
   <body>
     <header>
@@ -40,6 +52,19 @@
         <% end %>
         </li>
       </ul>
+      </div>
+      <nav class="sp-nav">
+        <ul>
+          <li><a href="#">Enmusiquerとは</a></li>
+          <li><a href="#">ランキング</a></li>
+          <li><a href="#">楽曲一覧</a></li>
+          <li><a href="#">タグ一覧</a></li>
+          <li><a href="#">詳細検索</a></li>
+          <li class="close"><span>閉じる</span></li>
+        </ul>
+      </nav>
+      <div id="hamburger">
+        <span></span>
       </div>
     </header>
     <main>

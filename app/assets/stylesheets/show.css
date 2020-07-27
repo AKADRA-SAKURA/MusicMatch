@@ -34,7 +34,7 @@ td:nth-child(1){
 
 .detail{
     padding: 0.5em 1em;
-    width: 600px;
+    width: 70%;
     height: fit-content;
     margin-bottom: 10px;
     font-weight: bold;
@@ -74,4 +74,10 @@ td:nth-child(1){
     background: #FFF;
     border: solid 3px rgb(255, 186, 57);/*線*/
     border-radius: 10px;/*角の丸み*/
+}
+
+@media screen and (max-width: 480px) {
+.detail{
+    width: 100%;
+}
 }

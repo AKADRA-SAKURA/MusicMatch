@@ -100,11 +100,17 @@
     color:white; 
     height:100px;  
     text-align:center; 
-    line-height: 100px;
+    line-height: normal;
+    display: table;
     font-family: 'Noto Serif JP', serif;
     letter-spacing: 15px;
     font-size: 2px;
     font-weight: bold;
     -webkit-text-size-adjust: 100%;
+    word-wrap: normal;
+  }
+  .tema{
+    display: table-cell;
+    vertical-align: middle;
   }
 }
