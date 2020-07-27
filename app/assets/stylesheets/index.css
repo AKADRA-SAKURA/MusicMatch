@@ -10,7 +10,7 @@
     line-height: 100px;
     font-family: 'Noto Serif JP', serif;
     letter-spacing: 15px;
-    font-size: 25px;
+    font-size: 125%;
     font-weight: bold;
     -webkit-text-size-adjust: 100%;
   }
@@ -91,4 +91,20 @@
     vertical-align: middle;
     background-color: rgb(255, 141, 65);
     border-radius: 10px;
+  }
+
+
+@media screen and (max-width: 480px){ 
+  .midashi{
+    background: radial-gradient(#ff753e, #fae8ad);
+    color:white; 
+    height:100px;  
+    text-align:center; 
+    line-height: 100px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 15px;
+    font-size: 2px;
+    font-weight: bold;
+    -webkit-text-size-adjust: 100%;
+  }
 }
