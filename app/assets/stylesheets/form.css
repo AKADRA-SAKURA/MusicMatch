@@ -13,3 +13,16 @@ textarea{
   width:400px;
   height:100px;
 }
+
+@media screen and (max-width: 1200px) {
+
+textarea {
+  width:100%;
+  height:100px;
+}
+
+.field{
+  width: 100%;
+}
+
+}

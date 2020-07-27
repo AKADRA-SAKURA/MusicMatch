@@ -3,8 +3,7 @@
 <div class="userpage-zentai">
 
 <div class="profile">
-  <%= image_tag current_user.icon_url_url, :size =>'160x160' %><br>
-
+  <div class="img-fluid rounded"><%= image_tag current_user.icon_url_url, :size =>'100%x100%' %><br></div>
   <h1><%= current_user.user_name %></h1>
   <%= link_to image_tag("https://res.cloudinary.com/dtyelpqc0/image/upload/v1594727526/henshusuru_idhzqu.png", class:"image_henshusuru"), edit_user_registration_path %>
 

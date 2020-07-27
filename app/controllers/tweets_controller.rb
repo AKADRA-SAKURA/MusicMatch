@@ -57,7 +57,7 @@ class TweetsController < ApplicationController
 
     private
     def tweet_params
-      params.require(:tweet).permit(:title, :artist, :writer, :composer, :published, :record, :image, :used, { :tag_ids => []})
+      params.require(:tweet).permit(:title, :artist, :writer, :composer, :year, :published, :record, :image, :used, { :tag_ids => []})
     end
 
 end
