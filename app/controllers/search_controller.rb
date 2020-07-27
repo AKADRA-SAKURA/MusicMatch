@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
     def search
         if params[:search] != nil && params[:search] != ''
-            @tweets = Tweet.where("title LIKE ? ", "%" + params[:search] + "%").or(Tweet.where("artist LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("used LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("composer LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("writer LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("record LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("published LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("online LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("year LIKE ? ", "%" + params[:search] + "%")).page(params[:page]).per(20)
+            @tweets = Tweet.where("title LIKE ? ", "%" + params[:search] + "%").or(Tweet.where("artist LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("used LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("composer LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("writer LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("record LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("published LIKE ? ", "%" + params[:search] + "%")).or(Tweet.where("online LIKE ? ", "%" + params[:search] + "%")).page(params[:page]).per(20)
           else
             @tweets = Tweet.all.order(created_at: :desc).page(params[:page]).per(20)
         end
