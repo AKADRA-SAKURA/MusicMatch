@@ -31,6 +31,7 @@
     flex-flow: column;
     min-height: 100vh;
     background-color: rgb(255, 229, 142);
+    padding-top: 80px; 
   }
   header {
     background-color: red;
@@ -121,115 +122,27 @@ html{
 .sp-nav {
   display: none;
 }
-#hamburger {
-  display: none;
-}
 
 @media screen and (max-width: 480px) {
   .header-list {
      display: none;
   }
-  .sp-nav {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: block;
-    width: 100%;
-    background: rgba(0, 0, 0, .8);
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: all .2s ease-in-out;
- }
- #hamburger {
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 25px;
-    margin: 0 20px 0 20px;
- }
- #hamburger span {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    transform: translateY(-50%);
- }
- #hamburger::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
- }
- #hamburger::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 70%;
-    height: 2px;
-    background-color: #fff;
- }
- /*スマホメニュー*/
- .sp-nav ul {
-    padding: 0;
+  .sp-nav{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
- }
- .sp-nav li {
-    margin: 0;
-    padding: 0;
- }
- .sp-nav li span {
-    font-size: 15px;
-    color: #fff;
- }
- .sp-nav li a, .sp-nav li span {
-    display: block;
-    padding: 20px 0;
- }
- /*-閉じるアイコンー*/
- .sp-nav .close {
-    position: relative;
-    padding-left: 20px;
- }
- .sp-nav .close::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    width: 16px;
-    height: 1px;
-    background: #fff;
-    transform: rotate( 45deg );
- }
- .sp-nav .close::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    width: 16px;
-    height: 1px;
-    background: #fff;
-    transform: rotate( -45deg );
- }
- .toggle {
-    transform: translateY( 0 );
-    opacity: 1;
- }
+  }
+  .navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+}
+.navbar-toggler.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+}
+.navbar-toggler.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.navbar-toggler.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+}
+
 }

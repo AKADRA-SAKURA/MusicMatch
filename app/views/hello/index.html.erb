@@ -30,7 +30,7 @@
                   <% end %>
                 <% end %><br>
                 <% if user_signed_in? && current_user.id == t.user_id %>
-                  <%= link_to '編集する', "/tweets/#{t.id}/edit", :class=>"link_to" %>
+                  <%= link_to '編集する', "/tweets/#{t.id}/edit", :class=>"btn btn-outline-danger" %>
                 <% end %>
               <% else %>
                 (♡<%= t.liked_users.count %>)
@@ -78,7 +78,7 @@
                   <% end %>
                 <% end %><br>
                 <% if user_signed_in? && current_user.id == t.user_id %>
-                    <%= link_to '編集する', "/tweets/#{t.id}/edit", :class=>"link_to" %>　
+                    <%= link_to '編集する', "/tweets/#{t.id}/edit", :class=>"btn btn-outline-danger" %>　
                 <% end %>
               <% else %>
                 (♡<%= t.liked_users.count %>)
