@@ -30,3 +30,10 @@
   column-rule: 1px solid #cdcdcd;
   column-gap: 2em;
 }
+
+
+@media screen and (max-width: 480px) {
+  .form-group {
+    columns: 1;
+  }
+}

@@ -46,3 +46,12 @@ a:hover {
   color: yellow;
   text-decoration: underline;;
 }
+
+@media screen and (max-width: 480px) {
+  .tag-container {
+    columns: 2;
+  }
+  .link-to-tagsearch{
+    margin-top: 80px;
+  }
+}
