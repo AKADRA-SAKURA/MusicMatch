@@ -70,6 +70,21 @@
             <li class="nav-item">
               <a class="nav-link text-light" href="../search/search">詳細検索</a>
             </li>
+            <li class="nav-item">
+              <% if user_signed_in? %>
+                <div class="user_nav grid-6">
+                  <div class="name"><%= current_user.user_name %>さん</div>
+                  <a href="/users/<%= current_user.id %>">マイページ</a><br>
+                  <%= link_to "新規投稿",tweets_new_path %><br>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+              <% else %>
+                <div class="grid-6">
+                  <%= link_to "ログイン", tweets_new_path, class: 'post' %><br>
+                  <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+                </div>
+              <% end %>
+            </li>        
           </ul>
         </div>
       </nav>
