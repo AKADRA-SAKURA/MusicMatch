@@ -75,6 +75,7 @@
 
 <div class="liked-user">
   <h4>いいねしたユーザー</h4>
+  <hr>
   <% @tweet.liked_users.each do |user| %>
     <li><%= user.user_name %></li>
   <% end %>
@@ -82,6 +83,7 @@
 
 <div class="comment-wrapper">
   <h4>コメント一覧</h4>
+  <hr>
   <% @comments.each do |c| %>
     <div>
       (投稿者) <%= c.user.user_name unless c.user.blank? %>
